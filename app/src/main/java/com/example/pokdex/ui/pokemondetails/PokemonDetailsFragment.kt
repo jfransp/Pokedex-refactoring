@@ -1,5 +1,6 @@
 package com.example.pokdex.ui.pokemondetails
 
+import android.content.Context
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
@@ -21,10 +22,7 @@ import com.example.pokdex.R
 import com.example.pokdex.data.models.pokemondetails.PokemonDetails
 import com.example.pokdex.data.models.pokemondetails.Type
 import com.example.pokdex.databinding.FragmentPokemonDetailsBinding
-import com.example.pokdex.util.capitalizeUtil
-import com.example.pokdex.util.getColorFromImage
-import com.example.pokdex.util.getImageUrlFromUrl
-import com.example.pokdex.util.typesColorSetter
+import com.example.pokdex.util.*
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -173,7 +171,10 @@ class PokemonDetailsFragment : Fragment(R.layout.fragment_pokemon_details) {
 
     private fun setupSavePokemonButton() {
         binding.savePokemonButton.setOnClickListener {
-            viewModel.pokemonLiveData.value?.let { pokemon -> viewModel.savePokemon(pokemon) }
+            viewModel.pokemonLiveData.value?.let { pokemon ->
+                viewModel.savePokemon(pokemon)
+                context?.toast("${pokemon.name} saved!")
+            }
         }
     }
 
