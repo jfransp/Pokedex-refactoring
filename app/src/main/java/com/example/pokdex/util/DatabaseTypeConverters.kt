@@ -5,6 +5,8 @@ import com.example.pokdex.data.models.pokemondetails.*
 
 class DatabaseTypeConverters {
 
+    //I tried using gson for storing complex data as a json string but was getting weird errors, so
+    //I decided to just manipulate the data manually.
     @TypeConverter
     fun fromStats(stats: List<Stat>) : String {
         var outputString = ""
