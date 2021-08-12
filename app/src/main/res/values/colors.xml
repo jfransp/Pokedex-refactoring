@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="app_background_color">#6d6d6d</color>
+    <color name="app_highlight_color">#424242</color>
+    <color name="app_highlight_text_color">#ff8a50</color>
+    <color name="app_bottom_navigation_item_color">#A33600</color>
+    <color name="app_item_box_background_color">#C0C8BC</color>
+    <color name="app_header_title_color">#5C5346</color>
+    <color name="bottom_navigation_menu_color">#8C6057</color>
+    <color name="bottom_navigation_menu_item_color">#C8AEA7</color>
+    <color name="bottom_navigation_menu_item_color_selected">#E7DCD9</color>
+
+
+    <!--Type colors-->
+    <color name="normal_color">#757575</color>
+    <color name="fire_color">#f57c00</color>
+    <color name="water_color">#4db6ac</color>
+    <color name="grass_color">#43a047</color>
+    <color name="electric_color">#ffee58</color>
+    <color name="ice_color">#b3e5fc</color>
+    <color name="fighting_color">#bf360c</color>
+    <color name="poison_color">#ab47bc</color>
+    <color name="ground_color">#ffd54f</color>
+    <color name="flying_color">#b39ddb</color>
+    <color name="psychic_color">#7986cb</color>
+    <color name="bug_color">#9e9d24</color>
+    <color name="rock_color">#bcaaa4</color>
+    <color name="ghost_color">#4a148c</color>
+    <color name="dark_color">#3e2723</color>
+    <color name="dragon_color">#283593</color>
+    <color name="steel_color">#eeeeee</color>
+    <color name="fairy_color">#ff9e80</color>
+
+    <!--Stats colors-->
+    <color name="hp_color">#4caf50</color>
+    <color name="atk_color">#ff5722</color>
+    <color name="def_color">#009688</color>
+    <color name="spd_color">#ffa726</color>
+
+</resources>

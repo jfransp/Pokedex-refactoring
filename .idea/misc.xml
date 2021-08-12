@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/drawable/bottom_navigation_menu_shape.xml" value="0.25" />
+        <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/drawable/bottom_navigaton_selector.xml" value="0.2203125" />
+        <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/drawable/details_header_shape.xml" value="0.2203125" />
+        <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/drawable/item_box_background.xml" value="0.2203125" />
+        <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/drawable/pokemon_list_item_background_shade.xml" value="0.2203125" />
+        <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/drawable/pokemon_list_item_text_background_shade.xml" value="0.2203125" />
+        <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/drawable/type_background_shape.xml" value="0.2203125" />
+        <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/layout/content_main.xml" value="0.22" />
+        <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/layout/fragment_first.xml" value="0.25" />
+        <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/layout/fragment_my_pokemons.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/layout/fragment_pokedex_main.xml" value="0.25" />
+        <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/layout/fragment_pokemon_details.xml" value="0.25" />
+        <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/layout/fragment_second.xml" value="0.22" />
+        <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/layout/pokemon_list_item.xml" value="0.75" />
+        <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/layout/type_list_item.xml" value="0.67" />
+        <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/menu/menu_main.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
