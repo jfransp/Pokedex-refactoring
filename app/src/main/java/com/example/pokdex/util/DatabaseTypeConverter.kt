@@ -7,16 +7,6 @@ import com.google.gson.Gson
 class DatabaseTypeConverter {
 
     @TypeConverter
-    fun fromSprites(sprites: Sprites): String {
-        return sprites.other.dream_world.front_default
-    }
-
-    /*@TypeConverter
-    fun toSprites(url: String): Sprites {
-        return Sprites(Other(DreamWorld(url)))
-    }*/
-
-    @TypeConverter
     fun fromStats(stats: List<Stat>) : String {
         return Gson().toJson(stats)
     }
@@ -24,6 +14,16 @@ class DatabaseTypeConverter {
     @TypeConverter
     fun toStats(jsonString: String): List<Stat> {
         return Gson().fromJson(jsonString, Array<Stat>::class.java).toList()
+    }
+
+    @TypeConverter
+    fun fromTypes(types: List<Type>) : String {
+        return Gson().toJson(types)
+    }
+
+    @TypeConverter
+    fun toTypes(jsonString: String): List<Type> {
+        return Gson().fromJson(jsonString, Array<Type>::class.java).toList()
     }
 
 }
