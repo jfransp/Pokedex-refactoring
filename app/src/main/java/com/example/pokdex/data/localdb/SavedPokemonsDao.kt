@@ -8,12 +8,12 @@ import com.example.pokdex.data.models.pokemondetails.PokemonDetails
 interface SavedPokemonsDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(PokemonDetails: PokemonDetails): Long
+    suspend fun insert(pokemon: PokemonDetails): Long
 
     @Query("SELECT * FROM saved_pokemon_data")
     fun getAllSavedArticles(): LiveData<List<PokemonDetails>>
 
-    @Delete
-    suspend fun deletePokemon(PokemonDetails: PokemonDetails)
+    @Query("DELETE FROM saved_pokemon_data WHERE id LIKE :pokemonId")
+    suspend fun deletePokemon(pokemonId: Int)
 
 }

@@ -1,9 +1,11 @@
 package com.example.pokdex.ui.pokemondetails
 
+import android.util.Log
 import androidx.lifecycle.*
 import com.example.pokdex.data.models.pokemondetails.PokemonDetails
 import com.example.pokdex.data.models.pokemonlist.Pokemon
 import com.example.pokdex.data.repository.PokemonRepository
+import com.example.pokdex.databinding.FragmentPokemonDetailsBinding
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -23,8 +25,10 @@ class PokemonDetailsViewModel @Inject constructor(
         _result.value = repository.getPokemonDetails(pokemon.name)
     }
 
-    fun savePokemon() {
-        TODO()
+    fun savePokemon(pokemon: PokemonDetails) {
+        viewModelScope.launch {
+            repository.savePokemon(pokemon)
+        }
     }
 
 }

@@ -18,14 +18,15 @@ object AppModule {
     @Singleton
     @Provides
     fun providePokemonRepository(
-        api: PokeApi
-    ) = PokemonRepository(api)
+        api: PokeApi,
+        db: SavedPokemonsDatabase
+    ) = PokemonRepository(api, db)
 
     @Provides
     @Singleton
     fun provideDatabase(
         app: Application
-    ) = Room.databaseBuilder(app,SavedPokemonsDatabase::class.java, "saved_pokemon_data")
+    ) = Room.databaseBuilder(app, SavedPokemonsDatabase::class.java, "saved_pokemon_data")
         .fallbackToDestructiveMigration()
         .build()
 

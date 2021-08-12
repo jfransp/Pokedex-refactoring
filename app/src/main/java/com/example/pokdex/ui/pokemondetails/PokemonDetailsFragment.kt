@@ -3,6 +3,7 @@ package com.example.pokdex.ui.pokemondetails
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.View
 import androidx.annotation.RequiresApi
@@ -52,7 +53,6 @@ class PokemonDetailsFragment : Fragment(R.layout.fragment_pokemon_details) {
         viewModel.pokemonLiveData.observe(viewLifecycleOwner, { pokemonDetails ->
             populateScreenData(pokemonDetails)
         })
-
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
@@ -173,7 +173,7 @@ class PokemonDetailsFragment : Fragment(R.layout.fragment_pokemon_details) {
 
     private fun setupSavePokemonButton() {
         binding.savePokemonButton.setOnClickListener {
-            viewModel.savePokemon()
+            viewModel.pokemonLiveData.value?.let { pokemon -> viewModel.savePokemon(pokemon) }
         }
     }
 
