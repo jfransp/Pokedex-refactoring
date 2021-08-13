@@ -32,7 +32,7 @@ class PokemonRepository @Inject constructor(
 
 
     //Local functions on Room database
-    suspend fun savePokemon(pokemon: PokemonDetails) {
+    suspend fun upsertPokemon(pokemon: PokemonDetails) {
         db.getDao().insert(pokemon)
     }
 

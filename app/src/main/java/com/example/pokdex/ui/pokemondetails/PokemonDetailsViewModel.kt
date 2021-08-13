@@ -43,7 +43,7 @@ class PokemonDetailsViewModel @Inject constructor(
 
     fun savePokemon(pokemon: PokemonDetails) {
         viewModelScope.launch {
-            repository.savePokemon(pokemon)
+            repository.upsertPokemon(pokemon)
         }
     }
 

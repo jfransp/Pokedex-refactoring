@@ -6,10 +6,13 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.pokdex.R
 import com.example.pokdex.data.models.pokemondetails.PokemonDetails
 import com.example.pokdex.databinding.FragmentMyPokemonsBinding
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -41,6 +44,38 @@ class MyPokemonsFragment : Fragment(R.layout.fragment_my_pokemons), MyPokemonsRe
             recyclerView.adapter = adapter
             recyclerView.layoutManager = LinearLayoutManager(activity)
         }
+
+        val itemTouchHelperCallback = object : ItemTouchHelper.SimpleCallback(
+            ItemTouchHelper.UP or ItemTouchHelper.DOWN,
+            ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
+        ) {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                return true
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val position = viewHolder.absoluteAdapterPosition
+                val pokemon = adapter.currentList[position]
+                viewModel.deletePokemon(pokemon.id)
+                view?.let {
+                    Snackbar.make(it, "Pokemon deleted", Snackbar.LENGTH_LONG).apply {
+                        setAction("Undo") {
+                            viewModel.undoDeletion(pokemon)
+                        }
+                        show()
+                    }
+                }
+            }
+        }
+
+        ItemTouchHelper(itemTouchHelperCallback).apply {
+            attachToRecyclerView(binding.recyclerView)
+        }
+
 
         viewModel.pokemonLiveData.observe(viewLifecycleOwner) { savedPokemonList ->
             adapter.submitList(savedPokemonList)
