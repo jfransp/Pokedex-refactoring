@@ -28,7 +28,12 @@ Json parsing and converting
 ### SafeArgs Plugin
 For passing basic data between fragments on navigation.
 ### Progress View
-Custom progress view developed by [skydoves](https://github.com/skydoves) (from whom I also got inspiration for the detail screen layout).
+Custom view developed by [skydoves](https://github.com/skydoves) (from whom I also got inspiration for the detail screen layout).
+
+### Some minor implementations
+##### Recycler Views, Bottom Navigation, Swipe to Delete (with undo snackbar), Database Type Converters for Room, LiveData
+
+
 
 # PokeAPI
 This app was developed on top of the [pokeapi.co](https://pokeapi.co/) free to use pokemon data REST Api.
