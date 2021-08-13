@@ -1,66 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/recycler_view_item"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/recycler_view_item"
     android:layout_width="match_parent"
-    android:layout_marginTop="5dp"
-    android:layout_marginBottom="10dp"
-    android:clickable="true"
-    android:focusable="true"
     android:layout_height="120dp"
     android:layout_gravity="center_horizontal"
     android:layout_marginHorizontal="10dp"
-    android:padding="5dp"
-    android:background="@drawable/saved_pokemon_item_background_shape" >
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/saved_pokemon_item_background_shape"
+    android:clickable="true"
+    android:focusable="true"
+    android:padding="5dp">
 
 
     <ImageView
         android:id="@+id/pokemon_drawable"
         android:layout_width="100dp"
         android:layout_height="match_parent"
-        android:elevation="1dp"
         android:layout_marginStart="15dp"
+        android:elevation="1dp"
         android:src="@drawable/ic_pokeball_color"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/pokemon_name"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:gravity="center"
         android:layout_marginStart="10dp"
         android:alpha="0.6"
         android:elevation="2dp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:gravity="center"
         android:textColor="@color/black"
         android:textSize="25sp"
-        app:layout_constraintTop_toTopOf="@id/pokemon_drawable"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/pokemon_drawable"
         tools:text="Pokemon Name" />
 
 
     <TextView
         android:id="@+id/type_slot_one"
         android:layout_width="85dp"
-        android:gravity="center"
         android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/type_background_shape"
         android:backgroundTint="@color/normal_color"
-        android:layout_marginTop="10dp"
         android:elevation="1dp"
-        android:layout_marginStart="5dp"
         android:fontFamily="sans-serif-medium"
+        android:gravity="center"
         android:paddingHorizontal="20dp"
         android:paddingVertical="4dp"
         android:textColor="@color/steel_color"
         android:textSize="12sp"
         android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@id/pokemon_name"
         app:layout_constraintStart_toEndOf="@id/pokemon_drawable"
+        app:layout_constraintTop_toBottomOf="@id/pokemon_name"
         tools:text="Fighting"
         tools:visibility="visible" />
 
@@ -68,35 +68,35 @@
         android:id="@+id/type_slot_two"
         android:layout_width="85dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
         android:background="@drawable/type_background_shape"
         android:backgroundTint="@color/normal_color"
         android:elevation="1dp"
-        android:gravity="center"
-        android:layout_marginStart="5dp"
         android:fontFamily="sans-serif-medium"
+        android:gravity="center"
         android:paddingHorizontal="20dp"
         android:paddingVertical="4dp"
         android:textColor="@color/steel_color"
         android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@id/pokemon_drawable"
-        app:layout_constraintTop_toBottomOf="@id/type_slot_one"
-        app:layout_constraintStart_toEndOf="@id/pokemon_drawable"
         android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/pokemon_drawable"
+        app:layout_constraintStart_toEndOf="@id/pokemon_drawable"
+        app:layout_constraintTop_toBottomOf="@id/type_slot_one"
         tools:text="Fighting"
         tools:visibility="visible" />
 
 
     <TextView
         android:id="@+id/pokemon_id"
-        tools:text="#69"
-        android:alpha="0.5"
-        android:textSize="35sp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="2sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="2sp"
+        android:alpha="0.5"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        tools:text="#69" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

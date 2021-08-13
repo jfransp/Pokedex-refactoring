@@ -15,4 +15,5 @@
     <string name="details_height_title_string">Height</string>
     <string name="details_stats_title_string">Stats</string>
     <string name="my_pokemons_header_title">My Pokemons</string>
+    <string name="pokedex_header_title">Pokédex</string>
 </resources>
