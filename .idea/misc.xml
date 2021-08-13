@@ -9,6 +9,7 @@
         <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/drawable/item_box_background.xml" value="0.2203125" />
         <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/drawable/pokemon_list_item_background_shade.xml" value="0.2203125" />
         <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/drawable/pokemon_list_item_text_background_shade.xml" value="0.2203125" />
+        <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/drawable/saved_pokemon_item_background_shape.xml" value="0.2203125" />
         <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/drawable/type_background_shape.xml" value="0.2203125" />
         <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/layout/content_main.xml" value="0.22" />
@@ -18,6 +19,7 @@
         <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/layout/fragment_pokemon_details.xml" value="0.25" />
         <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/layout/fragment_second.xml" value="0.22" />
         <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/layout/pokemon_list_item.xml" value="0.75" />
+        <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/layout/saved_pokemon_item.xml" value="0.33" />
         <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/layout/type_list_item.xml" value="0.67" />
         <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/menu/menu_main.xml" value="0.1" />

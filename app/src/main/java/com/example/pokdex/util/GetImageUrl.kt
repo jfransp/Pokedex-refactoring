@@ -9,3 +9,8 @@ fun getImageUrlFromUrl(url: String): String {
     return "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokeId}.png"
 
 }
+
+fun getImageUrlFromId(id: Int) : String {
+    val idString = id.toString()
+    return "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${idString}.png"
+}

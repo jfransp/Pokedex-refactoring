@@ -46,11 +46,13 @@ class PokedexMainFragment : Fragment(R.layout.fragment_pokedex_main), PokedexPag
             adapter.submitData(viewLifecycleOwner.lifecycle, pagingData)
         }
 
-
     }
 
     override fun onItemClick(pokemon: Pokemon) {
-        val action = PokedexMainFragmentDirections.actionPokedexMainToPokemonDetails(pokemon)
+        val action = PokedexMainFragmentDirections.actionPokedexMainToPokemonDetails(
+            pokemon = pokemon,
+            isFetchFromRemote = true
+        )
         view?.findNavController()?.navigate(action)
     }
 

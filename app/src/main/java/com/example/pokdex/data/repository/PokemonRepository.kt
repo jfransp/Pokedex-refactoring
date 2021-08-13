@@ -2,7 +2,6 @@ package com.example.pokdex.data.repository
 
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
-import com.example.pokdex.data.localdb.SavedPokemonsDao
 import com.example.pokdex.data.localdb.SavedPokemonsDatabase
 import com.example.pokdex.data.models.pokemondetails.PokemonDetails
 import com.example.pokdex.data.remoteAPI.PokeApi
@@ -36,6 +35,13 @@ class PokemonRepository @Inject constructor(
     suspend fun savePokemon(pokemon: PokemonDetails) {
         db.getDao().insert(pokemon)
     }
+
+    fun getAllSavedPokemon() =
+        db.getDao().getAllSavedPokemon()
+
+    suspend fun getSavedPokemon(pokemonId: Int) =
+        db.getDao().getSavedPokemon(pokemonId)
+
 
     suspend fun deletePokemon(id: Int) {
         db.getDao().deletePokemon(id)

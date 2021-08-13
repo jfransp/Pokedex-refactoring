@@ -10,7 +10,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class PokedexMainViewModel @Inject constructor(
-    private val repository: PokemonRepository
+    repository: PokemonRepository
 ): ViewModel() {
 
     val pokemonListFlow = repository.getAllPokemon().asLiveData().cachedIn(viewModelScope)

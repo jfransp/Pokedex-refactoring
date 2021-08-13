@@ -40,22 +40,23 @@ class PokemonDetailsFragment : Fragment(R.layout.fragment_pokemon_details) {
 
         _binding = FragmentPokemonDetailsBinding.bind(view)
 
-        viewModel.getPokemonDetails()
+        viewModel.pokemonLiveData.observe(viewLifecycleOwner, { pokemonDetails ->
+            populateScreenData(pokemonDetails)
+        })
+
+        viewModel.fetchData()
 
         setupBackButton()
 
         setupSavePokemonButton()
 
-        viewModel.pokemonLiveData.observe(viewLifecycleOwner, { pokemonDetails ->
-            populateScreenData(pokemonDetails)
-        })
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
     private fun populateScreenData(data: PokemonDetails) {
 
         //Separating data
-        val imageUrl = getImageUrlFromUrl(args.pokemon.url)
+        val imageUrl = getImageUrlFromId(data.id)
         val pokemonIdString = "#${data.id}"
         val capitalizedName = data.name.capitalizeUtil()
         val types = data.types
@@ -122,7 +123,7 @@ class PokemonDetailsFragment : Fragment(R.layout.fragment_pokemon_details) {
                 binding.apply {
                     typeSlotOne.apply {
                         visibility = View.VISIBLE
-                        typesColorSetter(1, context = context, types[0], binding)
+                        fragmentTypesColorSetter(1, context = context, types[0], binding)
                         text = types[0].type.name
                     }
                 }
@@ -131,12 +132,12 @@ class PokemonDetailsFragment : Fragment(R.layout.fragment_pokemon_details) {
                 binding.apply {
                     typeSlotOne.apply {
                         visibility = View.VISIBLE
-                        typesColorSetter(1, context = context, types[0], binding)
+                        fragmentTypesColorSetter(1, context = context, types[0], binding)
                         text = types[0].type.name
                     }
                     typeSlotTwo.apply {
                         visibility = View.VISIBLE
-                        typesColorSetter(2, context = context, types[1], binding)
+                        fragmentTypesColorSetter(2, context = context, types[1], binding)
                         text = types[1].type.name
                     }
 

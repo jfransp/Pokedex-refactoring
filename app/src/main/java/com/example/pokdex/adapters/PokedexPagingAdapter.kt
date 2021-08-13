@@ -25,7 +25,7 @@ import com.example.pokdex.util.getImageUrlFromUrl
 class PokedexPagingAdapter(
     private val listener: IAdapter
 ) : PagingDataAdapter<Pokemon, PokedexPagingAdapter.PokemonViewHolder>(
-    ARTICLE_COMPARATOR
+    POKEMON_COMPARATOR
 ) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokemonViewHolder {
@@ -110,7 +110,7 @@ class PokedexPagingAdapter(
     }
 
     companion object {
-        private val ARTICLE_COMPARATOR = object : DiffUtil.ItemCallback<Pokemon>() {
+        private val POKEMON_COMPARATOR = object : DiffUtil.ItemCallback<Pokemon>() {
             override fun areItemsTheSame(oldItem: Pokemon, newItem: Pokemon) =
                 oldItem.url == newItem.url
 
