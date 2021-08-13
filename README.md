@@ -30,6 +30,8 @@ For passing basic data between fragments on navigation.
 ### Progress View
 Custom view developed by [skydoves](https://github.com/skydoves) (from whom I also got inspiration for the detail screen layout).
 
+##   
+
 ### Some minor implementations
 ##### Recycler Views, Bottom Navigation, Swipe to Delete (with undo snackbar), Database Type Converters for Room, LiveData
 
@@ -44,9 +46,12 @@ it's own viewmodel and some navigation dependent logic was implemented on the Ma
 
 There's still room for improvement as always but it works (:
 
+##     
+
 ##### Future improvements
-Handling no network response on main pokedex screen (some message, retry button, etc); for now it just stays blank in case of no internet connection. 
-Adding loadstate listeners for fragments with circular progressbar. 
+Handling no network response on main pokedex screen (some message, retry button, etc); for now it just stays blank in case of no internet connection. Adding loadstate listeners for fragments with circular progressbar. Adding comments on code for clarity and educational purposes.
+
+##   
 
 ###### App developed for the VentureLabs selective process code challenge.
 
