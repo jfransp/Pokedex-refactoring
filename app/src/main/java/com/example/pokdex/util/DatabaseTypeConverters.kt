@@ -13,6 +13,7 @@ class DatabaseTypeConverters {
         for (stat in stats) {
             outputString += stat.base_stat.toString() + ","
         }
+
         return outputString
     }
 
@@ -36,16 +37,23 @@ class DatabaseTypeConverters {
         for (type in types) {
             outputString += type.type.name + ","
         }
+
         return outputString
     }
 
     @TypeConverter
     fun toTypes(typesString: String): List<Type> {
-        val list: List<String> = typesString.split(",").map { it.trim() }
-        return listOf(
-            Type(1, TypeX(list[0])),
-            Type(2, TypeX(list[1]))
-        )
-    }
+        val list: List<String> = typesString.split(",").dropLast(1)
 
+        return if (list.size == 2) {
+            listOf(
+                Type(1, TypeX(list[0])),
+                Type(2, TypeX(list[1]))
+            )
+        } else {
+            listOf(
+                Type(1, TypeX(list[0]))
+            )
+        }
+    }
 }
