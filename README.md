@@ -37,6 +37,10 @@ This app was developed on top of the [pokeapi.co](https://pokeapi.co/) free to u
 Basic MVVM architecture with repository. Remote mediation, when necessary, was handled within the viewmodel itself; dependencies were injected with Hilt; each fragment has
 it's own viewmodel and some navigation dependent logic was implemented on the MainActivity itself.
 
-There's still room for improvement but it works (:
+There's still room for improvement as always but it works (:
+
+###### App developed for the VentureLabs selective process code challenge.
+
+
 
 
