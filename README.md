@@ -39,10 +39,14 @@ Custom view developed by [skydoves](https://github.com/skydoves) (from whom I al
 This app was developed on top of the [pokeapi.co](https://pokeapi.co/) free to use pokemon data REST Api.
 
 # Architecture
-Basic MVVM architecture with repository. Remote mediation, when necessary, was handled within the viewmodel itself; dependencies were injected with Hilt; each fragment has
+Basic MVVM architecture with repository. Remote mediation for detail screen was handled within the viewmodel itself; dependencies were injected with Hilt; each fragment has
 it's own viewmodel and some navigation dependent logic was implemented on the MainActivity itself.
 
 There's still room for improvement as always but it works (:
+
+##### Future improvements
+Handling no network response on main pokedex screen (some message, retry button, etc); for now it just stays blank in case of no internet connection. 
+Adding loadstate listeners for fragments with circular progressbar. 
 
 ###### App developed for the VentureLabs selective process code challenge.
 
