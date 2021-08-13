@@ -31,4 +31,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/header_title" />
 
+    <TextView
+        android:id="@+id/empty_rv_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="17sp"
+        android:visibility="visible"
+        android:alpha="0.5"
+        android:textColor="@color/app_highlight_text_color"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/empy_saved_pokemons_message"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

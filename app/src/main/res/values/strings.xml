@@ -16,4 +16,5 @@
     <string name="details_stats_title_string">Stats</string>
     <string name="my_pokemons_header_title">My Pokemons</string>
     <string name="pokedex_header_title">Pokédex</string>
+    <string name="empy_saved_pokemons_message">You don\'t have any saved pokémons yet. \n Get going!</string>
 </resources>

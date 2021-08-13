@@ -33,6 +33,14 @@ class MyPokemonsFragment : Fragment(R.layout.fragment_my_pokemons), MyPokemonsRe
 
         setupRecyclerView()
 
+        viewModel.pokemonLiveData.observe(viewLifecycleOwner) { savedPokemonList ->
+            if (savedPokemonList.isEmpty()) {
+                binding.emptyRvMessage.visibility = View.VISIBLE
+            } else {
+                binding.emptyRvMessage.visibility = View.GONE
+            }
+        }
+
     }
 
     private fun setupRecyclerView() {
