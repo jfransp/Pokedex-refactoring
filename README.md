@@ -4,7 +4,7 @@ Pokédex app developed on top of the pokeapi.co REST API, with Retrofit, Room, P
 <p float="left"
 align="center">
   <img src="https://github.com/jfransp/Pokedex/blob/master/mainscreen.jpg?raw=true" width="200" />
-  <img src="https://github.com/jfransp/Pokedex/blob/master/savedscreen.jpg?raw=true" width="200" /> 
+  <img src="https://github.com/jfransp/Pokedex/blob/master/mypokescreen.jpg?raw=true" width="200" /> 
   <img src="https://github.com/jfransp/Pokedex/blob/master/detailsscreen.jpg?raw=true" width="200" />
 </p>
 
