@@ -3,9 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2203125" />
         <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/drawable/bottom_navigation_menu_shape.xml" value="0.25" />
         <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/drawable/bottom_navigaton_selector.xml" value="0.2203125" />
         <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/drawable/details_header_shape.xml" value="0.2203125" />
+        <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/drawable/ic_arrow_back.xml" value="0.2203125" />
+        <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2203125" />
+        <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/drawable/ic_pikachu.xml" value="0.2203125" />
+        <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/drawable/ic_pokeball_black.xml" value="0.2203125" />
+        <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/drawable/ic_pokeball_color.xml" value="0.2203125" />
         <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/drawable/item_box_background.xml" value="0.2203125" />
         <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/drawable/pokemon_list_item_background_shade.xml" value="0.2203125" />
         <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/drawable/pokemon_list_item_text_background_shade.xml" value="0.2203125" />
@@ -14,7 +20,7 @@
         <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/layout/content_main.xml" value="0.22" />
         <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/layout/fragment_first.xml" value="0.25" />
-        <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/layout/fragment_my_pokemons.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/layout/fragment_my_pokemons.xml" value="0.25" />
         <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/layout/fragment_pokedex_main.xml" value="0.25" />
         <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/layout/fragment_pokemon_details.xml" value="0.25" />
         <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/layout/fragment_second.xml" value="0.22" />
