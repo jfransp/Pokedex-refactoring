@@ -49,7 +49,7 @@ There's still room for improvement as always but it works (:
 ##     
 
 ##### Future improvements
--Handling no network response on main pokedex screen (some message, retry button, etc); for now it just stays blank in case of no internet connection.<br/>-The main pokedex screen items constraints and sizes have to be fixed, it gets messed up on some devices. <br/>-I might need to refactor some functions for setting view colors due to low compatibility (there might be problems running the app on API Levels 28 or lower, which is not a good number given the current distribution statistics).<br/>-Adding loadstate listeners for fragments with circular progressbar.<br/>-Adding comments on code for clarity and educational purposes.
+-Handling no network response on main pokedex screen (some message, retry button, etc); for now it just stays blank in case of no internet connection.<br/>-The main pokedex screen items constraints and sizes have to be fixed, it gets messed up on some devices. <br/>-I might need to refactor some functions for setting view colors due to low compatibility (there might be problems running the app on API Levels 27 or lower, which is not a good number given the current distribution statistics).<br/>-Adding loadstate listeners for fragments with circular progressbar.<br/>-Adding comments on code for clarity and educational purposes.
 
 ##   
 
