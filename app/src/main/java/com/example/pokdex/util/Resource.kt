@@ -5,6 +5,7 @@ library. It might make sense to use it on the PokemonDetail request (given the f
 doesn't use paging), but for the sake of consistency across the code I decided not to. I'm
 keeping it here in case I can figure something out in the future (same goes for the
 responseHandler class).*/
+
 sealed class Resource<T>(
     val data: T? = null,
     val message: String? = null

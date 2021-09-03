@@ -1,7 +1,5 @@
 package com.example.domain.models.pokemondetails
 
-import java.io.Serializable
-
 data class PokemonDetails(
     val height: Int,
     val id: Int,

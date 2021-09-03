@@ -1,7 +1,7 @@
 package com.example.data
 
 import com.example.domain.models.pokemondetails.PokemonDetails
-import com.example.domain.models.pokemonlist.PokeListResponse
+import com.example.domain.models.pokemonlist.PokemonList
 import com.example.domain.repositories.PokemonRepository
 
 class PokemonRepositoryImpl(
@@ -9,7 +9,7 @@ class PokemonRepositoryImpl(
     private val localDataSource: LocalDataSource
 ): PokemonRepository {
 
-    override suspend fun getAllFromRemote(): PokeListResponse {
+    override suspend fun getAllFromRemote(): PokemonList {
         TODO("Not yet implemented")
     }
 
