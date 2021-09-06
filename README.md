@@ -1,5 +1,7 @@
-Bem no início das implementações. Criei as entidades/modelos e interface do repositório no domain.
-Criei as entides da database e um protótipo simpleszinho de uma mapper (tentei tornar meio conciso
-retornando um Triple, não sei se é uma prática ok). Pelo que vi o ideal é usar interfaces nos mappers
-também, mas não entendi direito e resolvi implementar depois. Ainda não criei
-database/dao e retrofit, tá só a casca mesmo. Ainda não escrevi os use cases (não entendi direito ainda)
+Criei alguns mappers (não sei se estão corretos), iniciei as implementações do Room e do Retrofit.
+
+Estou com algumas dificuldades para entender como instanciar as classes do Room e do Retrofit dentro do
+módulo data. Eu preciso fazer alguma coisa de injeção de dependências dentro do módulo? Como eu passo
+a database para os dataSources? Também estou tendo alguns problemas em conseguir instanciar a API e
+os Daos dentro do data (geralmente eu instancio como singleton dentro dos módulos do Hilt, então
+não estou muito acostumado a trabalhar fora desse padrão, mas tenho certeza que é alguma coisa fácil)
