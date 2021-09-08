@@ -12,4 +12,6 @@ sealed class ErrorEntity {
 
     object Unknown : ErrorEntity()
 
+    object RequestTimedOut: ErrorEntity()
+
 }
