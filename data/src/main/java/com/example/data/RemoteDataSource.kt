@@ -1,4 +1,8 @@
 package com.example.data
 
-class RemoteDataSource {
+import com.example.data.remoteAPI.PokeApi
+
+class RemoteDataSource(
+    val api: PokeApi
+) {
 }

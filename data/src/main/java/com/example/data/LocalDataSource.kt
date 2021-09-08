@@ -8,8 +8,4 @@ class LocalDataSource(
     val db: PokemonDatabase
 ) {
 
-    suspend fun getAllPokemon(): List<PokemonDetails> {
-        TODO()
-    }
-
 }

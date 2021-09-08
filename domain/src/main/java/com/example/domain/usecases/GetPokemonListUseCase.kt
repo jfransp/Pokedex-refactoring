@@ -5,6 +5,8 @@ import kotlinx.coroutines.flow.Flow
 
 interface GetPokemonListUseCase {
 
-    fun getPokemonList(): Flow<PokemonList>
+    fun getPokemonList(): Flow<PokemonList> {
+        TODO()
+    }
 
 }
