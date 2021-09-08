@@ -1,7 +1,7 @@
 package com.example.data.remoteAPI
 
-import com.example.data.remoteAPI.models.PokemonListResponse
-import com.example.domain.models.pokemondetails.PokemonDetails
+import com.example.data.remoteAPI.models.PokemonDetailsRemote
+import com.example.data.remoteAPI.models.PokemonListRemote
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -15,12 +15,12 @@ interface PokeApi {
         limit: Int,
         @Query("offset")
         offset: Int
-    ) : Response<PokemonListResponse>
+    ) : Response<PokemonListRemote>
 
     @GET("pokemon/{pokemonName}")
     suspend fun getPokemonDetails(
         @Path("pokemonName")
         pokemonName: String
-    ) : Response<PokemonDetails>
+    ) : Response<PokemonDetailsRemote>
 
 }
