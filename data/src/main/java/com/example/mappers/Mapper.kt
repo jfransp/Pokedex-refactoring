@@ -21,9 +21,9 @@ interface Mapper {
         types: List<TypeLocal>
     ): PokemonDetails
 
-    fun mapPokemonListRemoteToPokemonList(remote: PokemonListRemote): PokemonList
+    fun mapPokemonListRemoteToPokemonList(pokemonList: PokemonListRemote): PokemonList
 
-    fun mapPokemonDetailsRemoteToPokemonDetails(remote: PokemonDetailsRemote): PokemonDetails
+    fun mapPokemonDetailsRemoteToPokemonDetails(pokemonDetails: PokemonDetailsRemote): PokemonDetails
 
     fun mapStatLocalToStat(stat: StatLocal): Stat
 

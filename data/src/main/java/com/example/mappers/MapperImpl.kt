@@ -66,33 +66,33 @@ class MapperImpl: Mapper {
         )
     }
 
-    override fun mapPokemonListRemoteToPokemonList(remote: PokemonListRemote): PokemonList =
+    override fun mapPokemonListRemoteToPokemonList(pokemonList: PokemonListRemote): PokemonList =
         PokemonList(
-            count = remote.count,
-            next = remote.next,
-            preview = remote.preview,
-            results = remote.results
+            count = pokemonList.count,
+            next = pokemonList.next,
+            preview = pokemonList.preview,
+            results = pokemonList.results
         )
 
-    override fun mapPokemonDetailsRemoteToPokemonDetails(response: PokemonDetailsRemote): PokemonDetails {
+    override fun mapPokemonDetailsRemoteToPokemonDetails(pokemonDetails: PokemonDetailsRemote): PokemonDetails {
 
         val outputStatList = mutableListOf<Stat>()
-        for (stat in response.stats) {
+        for (stat in pokemonDetails.stats) {
             outputStatList.add(mapStatRemoteToStat(stat))
         }
 
         val outputTypeList = mutableListOf<Type>()
-        for (type in response.types) {
+        for (type in pokemonDetails.types) {
             outputTypeList.add(mapTypeRemoteToType(type))
         }
 
         return PokemonDetails(
-            height = response.height,
-            id = response.id,
-            name = response.name,
+            height = pokemonDetails.height,
+            id = pokemonDetails.id,
+            name = pokemonDetails.name,
             stats = outputStatList,
             types = outputTypeList,
-            weight = response.weight
+            weight = pokemonDetails.weight
         )
     }
 
