@@ -1,5 +1,6 @@
 package com.example.data.remoteAPI
 
+import com.example.data.remoteAPI.models.PokemonListResponse
 import com.example.data.remoteAPI.models.PokemonResponse
 import com.example.domain.models.pokemonlist.PokemonList
 import retrofit2.http.GET
@@ -14,7 +15,7 @@ interface PokeApi {
         limit: Int,
         @Query("offset")
         offset: Int
-    ) : PokemonList
+    ) : PokemonListResponse
 
     @GET("pokemon/{pokemonName}")
     suspend fun getPokemonDetails(
