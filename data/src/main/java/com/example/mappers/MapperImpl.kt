@@ -3,10 +3,12 @@ package com.example.mappers
 import com.example.data.database.entities.PokemonLocal
 import com.example.data.database.entities.StatLocal
 import com.example.data.database.entities.TypeLocal
+import com.example.data.remoteAPI.models.PokemonListResponse
 import com.example.domain.models.pokemondetails.PokemonDetails
 import com.example.domain.models.pokemondetails.Stat
 import com.example.domain.models.pokemondetails.Type
 import com.example.domain.models.pokemondetails.TypeX
+import com.example.domain.models.pokemonlist.PokemonList
 
 class MapperImpl: Mapper {
 
@@ -62,6 +64,14 @@ class MapperImpl: Mapper {
             weight = pokemon.weight
         )
     }
+
+    override fun mapPokemonListResponseToPokemonList(response: PokemonListResponse): PokemonList =
+        PokemonList(
+            count = response.count,
+            next = response.next,
+            preview = response.preview,
+            results = response.results
+        )
 
 
     override fun mapStatLocalToStat(stat: StatLocal): Stat =
