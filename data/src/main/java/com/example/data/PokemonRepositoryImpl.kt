@@ -9,19 +9,27 @@ class PokemonRepositoryImpl(
     private val localDataSource: LocalDataSource
 ): PokemonRepository {
 
-    override suspend fun getAllFromRemote(): PokemonList {
+    override suspend fun getPokemonListFromRemote(limit: Int, offset: Int): PokemonList =
+        remoteDataSource.getPokemonList(limit, offset)
+
+
+    override suspend fun getPokemonDetailsFromRemote(): PokemonDetails {
         TODO("Not yet implemented")
     }
 
-    override suspend fun getPokemonDetails(): PokemonDetails {
+    override suspend fun savePokemon(pokemon: PokemonDetails) {
         TODO("Not yet implemented")
     }
 
-    override suspend fun upsert(pokemon: PokemonDetails) {
+    override suspend fun deletePokemon(pokemonId: Int) {
         TODO("Not yet implemented")
     }
 
-    override suspend fun getAllFromLocal() {
+    override suspend fun getPokemonListFromLocal() {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun getPokemonDetailsFromLocal(): PokemonDetails {
         TODO("Not yet implemented")
     }
 }

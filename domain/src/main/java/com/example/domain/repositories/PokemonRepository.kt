@@ -5,12 +5,16 @@ import com.example.domain.models.pokemonlist.PokemonList
 
 interface PokemonRepository {
 
-    suspend fun getAllFromRemote(): PokemonList
+    suspend fun getPokemonListFromRemote(limit: Int, offset: Int): PokemonList
 
-    suspend fun getPokemonDetails(): PokemonDetails
+    suspend fun getPokemonDetailsFromRemote(): PokemonDetails
 
-    suspend fun upsert(pokemon: PokemonDetails)
+    suspend fun savePokemon(pokemon: PokemonDetails)
 
-    suspend fun getAllFromLocal()
+    suspend fun deletePokemon(pokemonId: Int)
+
+    suspend fun getPokemonListFromLocal()
+
+    suspend fun getPokemonDetailsFromLocal(): PokemonDetails
 
 }
