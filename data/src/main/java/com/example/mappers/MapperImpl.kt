@@ -3,11 +3,12 @@ package com.example.mappers
 import com.example.data.database.entities.PokemonLocal
 import com.example.data.database.entities.StatLocal
 import com.example.data.database.entities.TypeLocal
-import com.example.data.remoteAPI.models.PokemonListResponse
+import com.example.data.remoteAPI.models.*
 import com.example.domain.models.pokemondetails.PokemonDetails
 import com.example.domain.models.pokemondetails.Stat
 import com.example.domain.models.pokemondetails.Type
 import com.example.domain.models.pokemondetails.TypeX
+import com.example.domain.models.pokemonlist.Pokemon
 import com.example.domain.models.pokemonlist.PokemonList
 
 class MapperImpl: Mapper {
@@ -65,14 +66,61 @@ class MapperImpl: Mapper {
         )
     }
 
-    override fun mapPokemonListResponseToPokemonList(response: PokemonListResponse): PokemonList =
+    override fun mapPokemonListRemoteToPokemonList(remote: PokemonListRemote): PokemonList =
         PokemonList(
-            count = response.count,
-            next = response.next,
-            preview = response.preview,
-            results = response.results
+            count = remote.count,
+            next = remote.next,
+            preview = remote.preview,
+            results = remote.results
         )
 
+    override fun mapPokemonDetailsRemoteToPokemonDetails(response: PokemonDetailsRemote): PokemonDetails {
+
+        val outputStatList = mutableListOf<Stat>()
+        for (stat in response.stats) {
+            outputStatList.add(mapStatRemoteToStat(stat))
+        }
+
+        val outputTypeList = mutableListOf<Type>()
+        for (type in response.types) {
+            outputTypeList.add(mapTypeRemoteToType(type))
+        }
+
+        return PokemonDetails(
+            height = response.height,
+            id = response.id,
+            name = response.name,
+            stats = outputStatList,
+            types = outputTypeList,
+            weight = response.weight
+        )
+    }
+
+    override fun mapStatRemoteToStat(stat: StatRemote): Stat {
+        return Stat(
+            base_stat = stat.base_stat
+        )
+    }
+
+    override fun mapTypeRemoteToType(type: TypeRemote): Type {
+        return Type(
+            slot = type.slot,
+            type = mapTypeXRemoteToTypeX(type.type)
+        )
+    }
+
+    override fun mapPokemonRemoteToPokemon(pokemon: PokemonRemote): Pokemon {
+        return Pokemon(
+            name = pokemon.name,
+            url = pokemon.url
+        )
+    }
+
+    override fun mapTypeXRemoteToTypeX(typex: TypeXRemote): TypeX {
+        return TypeX(
+            name = typex.name
+        )
+    }
 
     override fun mapStatLocalToStat(stat: StatLocal): Stat =
         Stat(
