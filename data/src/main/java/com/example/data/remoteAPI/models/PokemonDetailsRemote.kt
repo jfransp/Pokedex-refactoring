@@ -1,7 +1,5 @@
 package com.example.data.remoteAPI.models
 
-import com.example.domain.models.pokemondetails.Stat
-import com.example.domain.models.pokemondetails.Type
 
 data class PokemonDetailsRemote(
     val height: Int,
