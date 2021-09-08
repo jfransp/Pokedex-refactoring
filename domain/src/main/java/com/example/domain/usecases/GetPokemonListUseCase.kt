@@ -1,12 +1,10 @@
 package com.example.domain.usecases
 
-import com.example.domain.repositories.PokemonRepository
+import com.example.domain.models.pokemonlist.PokemonList
+import kotlinx.coroutines.flow.Flow
 
 interface GetPokemonListUseCase {
 
-    fun getPokemonList() {
-        TODO()
-    }
-
+    fun getPokemonList(): Flow<PokemonList>
 
 }
