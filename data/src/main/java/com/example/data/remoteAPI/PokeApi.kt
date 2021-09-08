@@ -15,12 +15,12 @@ interface PokeApi {
         limit: Int,
         @Query("offset")
         offset: Int
-    ) : Response<PokemonListRemote>
+    ) : PokemonListRemote
 
     @GET("pokemon/{pokemonName}")
     suspend fun getPokemonDetails(
         @Path("pokemonName")
         pokemonName: String
-    ) : Response<PokemonDetailsRemote>
+    ) : PokemonDetailsRemote
 
 }
