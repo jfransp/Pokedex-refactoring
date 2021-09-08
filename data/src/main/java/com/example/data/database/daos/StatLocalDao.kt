@@ -15,10 +15,11 @@ interface StatLocalDao {
     @Query("DELETE FROM stats WHERE poke_id LIKE :pokemonId")
     suspend fun deleteStatLocal(pokemonId: Int)
 
+    //Função que provavelmente não será usada
     @Query("SELECT * FROM stats")
     suspend fun getAllStatLocal(): List<StatLocal>
 
     @Query("SELECT * FROM stats WHERE poke_id LIKE :pokemonId")
-    suspend fun getStatLocal(pokemonId: Int): StatLocal
+    suspend fun getStatsLocal(pokemonId: Int): List<StatLocal>
 
 }
