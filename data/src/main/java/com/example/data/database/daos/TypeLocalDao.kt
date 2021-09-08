@@ -15,10 +15,11 @@ interface TypeLocalDao {
     @Query("DELETE FROM types WHERE poke_id LIKE :pokemonId")
     suspend fun deleteTypeLocal(pokemonId: Int)
 
+    //Função provavelmente não será usada
     @Query("SELECT * FROM types")
     suspend fun getAllTypeLocal(): List<TypeLocal>
 
     @Query("SELECT * FROM types WHERE poke_id LIKE :pokemonId")
-    suspend fun getTypeLocal(pokemonId: Int): TypeLocal
+    suspend fun getTypesLocal(pokemonId: Int): List<TypeLocal>
 
 }
