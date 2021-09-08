@@ -1,6 +1,6 @@
 package com.example.data.remoteAPI.models
 
-class PokemonResponse(
+data class PokemonRemote(
     val name: String,
     val url: String
 )
