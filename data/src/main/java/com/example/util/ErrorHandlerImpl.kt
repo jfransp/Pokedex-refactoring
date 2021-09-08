@@ -2,11 +2,8 @@ package com.example.util
 
 import com.example.domain.util.ErrorEntity
 import com.example.domain.util.ErrorHandler
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import retrofit2.HttpException
 import java.io.IOException
-import javax.xml.datatype.DatatypeConstants
 
 class ErrorHandlerImpl: ErrorHandler {
 
