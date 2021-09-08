@@ -13,7 +13,8 @@ import com.example.domain.models.pokemonlist.PokemonList
 
 class MapperImpl: Mapper {
 
-    override fun mapPokemonDetailsToPokemonLocal(pokemon: PokemonDetails): Triple<PokemonLocal, List<StatLocal>, List<TypeLocal>> {
+    override fun mapPokemonDetailsToPokemonLocal(pokemon: PokemonDetails):
+            Triple<PokemonLocal, List<StatLocal>, List<TypeLocal>> {
 
         val pokemonLocal = PokemonLocal(
             height = pokemon.height,
