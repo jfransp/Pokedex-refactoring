@@ -7,7 +7,7 @@ interface PokemonRepository {
 
     suspend fun getPokemonListFromRemote(limit: Int, offset: Int): PokemonList
 
-    suspend fun getPokemonDetailsFromRemote(): PokemonDetails
+    suspend fun getPokemonDetailsFromRemote(pokemonName: String): PokemonDetails
 
     suspend fun savePokemon(pokemon: PokemonDetails)
 
