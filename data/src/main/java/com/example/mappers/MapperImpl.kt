@@ -25,12 +25,12 @@ class MapperImpl: Mapper {
 
         val statsLocal = mutableListOf<StatLocal>()
         for (stat in pokemon.stats) {
-            statsLocal.add(mapStatToStatLocal(stat, pokemon.id))
+            statsLocal.add(mapStatToStatLocal(stat, pokemon.name))
         }
 
         val typesLocal = mutableListOf<TypeLocal>()
         for (type in pokemon.types) {
-            typesLocal.add(mapTypeToTypeLocal(type, pokemon.id))
+            typesLocal.add(mapTypeToTypeLocal(type, pokemon.name))
         }
 
         return Triple(
@@ -134,17 +134,17 @@ class MapperImpl: Mapper {
             type = TypeX(type.type)
         )
 
-    override fun mapStatToStatLocal(stat: Stat, pokemonId: Int): StatLocal =
+    override fun mapStatToStatLocal(stat: Stat, pokemonName: String): StatLocal =
         StatLocal(
             base_stat = stat.base_stat,
-            poke_id = pokemonId,
+            name = pokemonName,
         )
 
-    override fun mapTypeToTypeLocal(type: Type, pokemonId: Int): TypeLocal =
+    override fun mapTypeToTypeLocal(type: Type, pokemonName: String): TypeLocal =
         TypeLocal(
             slot = type.slot,
             type = type.type.name,
-            poke_id = pokemonId,
+            name = pokemonName,
 
         )
 }
