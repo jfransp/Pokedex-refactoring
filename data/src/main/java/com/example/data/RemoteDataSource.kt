@@ -3,7 +3,6 @@ package com.example.data
 import com.example.data.remoteAPI.PokeApi
 import com.example.domain.models.pokemonlist.PokemonList
 import com.example.mappers.MapperImpl
-import com.example.util.ErrorHandlerImpl
 
 class RemoteDataSource(
     private val api: PokeApi,
@@ -12,5 +11,8 @@ class RemoteDataSource(
 
     suspend fun getPokemonList(limit: Int, offset: Int): PokemonList =
         mapper.mapPokemonListRemoteToPokemonList(api.getAllPokemon(limit, offset))
+
+    suspend fun getPokemonDetails(pokemonName: String) =
+        mapper.mapPokemonDetailsRemoteToPokemonDetails(api.getPokemonDetails(pokemonName))
 
 }
