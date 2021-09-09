@@ -12,15 +12,14 @@ class PokemonRepositoryImpl(
     override suspend fun getPokemonListFromRemote(limit: Int, offset: Int): PokemonList =
         remoteDataSource.getPokemonList(limit, offset)
 
-    override suspend fun getPokemonDetailsListFromLocal(): List<PokemonDetails> {
+    override suspend fun getPokemonDetailsListFromLocal(): List<PokemonDetails> =
         localDataSource.getPokemonDetailsList()
-        TODO()
-    }
+
 
     override suspend fun getPokemonDetailsFromRemote(pokemonName: String): PokemonDetails =
         remoteDataSource.getPokemonDetails(pokemonName)
 
-    override suspend fun getPokemonDetailsFromLocal(pokemonName: String): PokemonDetails =
+    override suspend fun getPokemonDetailsFromLocal(pokemonName: String): PokemonDetails? =
         localDataSource.getPokemonDetails(pokemonName)
 
 
@@ -28,8 +27,8 @@ class PokemonRepositoryImpl(
         TODO("Not yet implemented")
     }
 
-    override suspend fun deletePokemon(pokemonId: Int) {
-        TODO("Not yet implemented")
+    override suspend fun deletePokemon(pokemonName: String) {
+        localDataSource.deletePokemon(pokemonName)
     }
 
 }
