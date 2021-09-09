@@ -7,8 +7,7 @@ import com.example.util.ErrorHandlerImpl
 
 class RemoteDataSource(
     private val api: PokeApi,
-    private val mapper: MapperImpl,
-    private val errorHandler: ErrorHandlerImpl
+    private val mapper: MapperImpl
 ) {
 
     suspend fun getPokemonList(limit: Int, offset: Int): PokemonList =
