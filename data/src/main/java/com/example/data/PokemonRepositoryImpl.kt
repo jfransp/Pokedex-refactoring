@@ -25,7 +25,7 @@ class PokemonRepositoryImpl(
         TODO("Not yet implemented")
     }
 
-    override suspend fun getPokemonListFromLocal() {
+    override suspend fun getPokemonDetailsListFromLocal() {
         TODO("Not yet implemented")
     }
 
