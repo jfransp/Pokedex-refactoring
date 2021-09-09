@@ -1,9 +1,13 @@
 package com.example.domain.usecases
 
-class DeleteSavedPokemonUseCase {
+import com.example.domain.repositories.PokemonRepository
 
-    fun deleteSavedPokemon() {
+class DeleteSavedPokemonUseCase(
+    private val repository: PokemonRepository
+) {
 
+    suspend fun deleteSavedPokemon(pokemonName: String) {
+        repository.deletePokemon(pokemonName)
     }
 
 }
