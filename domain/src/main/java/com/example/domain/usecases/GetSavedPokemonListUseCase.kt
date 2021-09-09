@@ -6,7 +6,7 @@ import com.example.domain.util.ErrorHandler
 import com.example.domain.util.Resource
 import java.lang.Exception
 
-class getSavedPokemonListUseCase(
+class GetSavedPokemonListUseCase(
     private val repository: PokemonRepository,
     private val errorHandler: ErrorHandler
 ) {

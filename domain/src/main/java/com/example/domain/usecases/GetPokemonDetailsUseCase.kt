@@ -5,7 +5,7 @@ import com.example.domain.repositories.PokemonRepository
 import com.example.domain.util.ErrorHandler
 import com.example.domain.util.Resource
 
-class getPokemonDetailsUseCase(
+class GetPokemonDetailsUseCase(
     private val repository: PokemonRepository,
     private val errorHandler: ErrorHandler
 ) {
