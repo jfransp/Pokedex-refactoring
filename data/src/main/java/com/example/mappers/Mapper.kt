@@ -29,9 +29,9 @@ interface Mapper {
 
     fun mapTypeLocalToType(type: TypeLocal): Type
 
-    fun mapStatToStatLocal(stat: Stat, pokemonId: Int): StatLocal
+    fun mapStatToStatLocal(stat: Stat, pokemonName: String): StatLocal
 
-    fun mapTypeToTypeLocal(type: Type, pokemonId: Int): TypeLocal
+    fun mapTypeToTypeLocal(type: Type, pokemonName: String): TypeLocal
 
     fun mapTypeRemoteToType(type: TypeRemote): Type
 
