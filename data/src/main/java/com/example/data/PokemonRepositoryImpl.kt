@@ -13,9 +13,9 @@ class PokemonRepositoryImpl(
         remoteDataSource.getPokemonList(limit, offset)
 
 
-    override suspend fun getPokemonDetailsFromRemote(): PokemonDetails {
-        TODO("Not yet implemented")
-    }
+    override suspend fun getPokemonDetailsFromRemote(pokemonName: String): PokemonDetails =
+        remoteDataSource.getPokemonDetails(pokemonName)
+    
 
     override suspend fun savePokemon(pokemon: PokemonDetails) {
         TODO("Not yet implemented")
