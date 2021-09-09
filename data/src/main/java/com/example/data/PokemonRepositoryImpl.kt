@@ -24,7 +24,7 @@ class PokemonRepositoryImpl(
 
 
     override suspend fun savePokemon(pokemon: PokemonDetails) {
-        TODO("Not yet implemented")
+        localDataSource.insertPokemon(pokemon)
     }
 
     override suspend fun deletePokemon(pokemonName: String) {

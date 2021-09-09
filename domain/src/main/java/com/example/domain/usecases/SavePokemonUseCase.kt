@@ -1,9 +1,14 @@
 package com.example.domain.usecases
 
-class SavePokemonUseCase {
+import com.example.domain.models.pokemondetails.PokemonDetails
+import com.example.domain.repositories.PokemonRepository
 
-    fun savePokemon() {
+class SavePokemonUseCase(
+    private val repository: PokemonRepository
+) {
 
+    suspend fun savePokemon(pokemon: PokemonDetails) {
+        repository.savePokemon(pokemon)
     }
 
 }
