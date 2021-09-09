@@ -20,7 +20,7 @@ class LocalDataSource(
             types = typeDao.getTypesLocal(pokemonId)
         )
 
-    suspend fun getPokemonLocalList(): List<PokemonDetails> {
+    suspend fun getPokemonDetailsList(): List<PokemonDetails> {
         val output = mutableListOf<PokemonDetails>()
 
         val result = pokeDao.getAllPokemonLocal()
