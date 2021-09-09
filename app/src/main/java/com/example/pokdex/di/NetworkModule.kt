@@ -1,6 +1,6 @@
 package com.example.pokdex.di
 
-import com.example.pokdex.data.remoteAPI.PokeApi
+import com.example.data.remoteAPI.PokeApi
 import com.example.pokdex.util.Constants.Companion.BASE_URL
 import dagger.Module
 import dagger.Provides

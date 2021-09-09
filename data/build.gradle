@@ -38,6 +38,7 @@ dependencies {
     def retrofit_version = '2.9.0'
     def room_version = "2.3.0"
 
+    //Domain layer
     api project (':domain')
 
     // Annotation processor
