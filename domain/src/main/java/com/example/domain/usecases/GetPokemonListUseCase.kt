@@ -1,13 +1,24 @@
 package com.example.domain.usecases
 
 import com.example.domain.models.pokemonlist.PokemonList
+import com.example.domain.repositories.PokemonRepository
+import com.example.domain.util.ErrorHandler
 import com.example.domain.util.Resource
-import kotlinx.coroutines.flow.Flow
 
-interface GetPokemonListUseCase {
+class GetPokemonListUseCase(
+    private val repository: PokemonRepository,
+    private val errorHandler: ErrorHandler
+) {
 
-    fun getPokemonList(): Resource<PokemonList> {
-        TODO()
+    suspend fun getPokemonList(limit: Int, offset: Int): Resource<PokemonList> {
+        val output: Resource<PokemonList> = try {
+            val response = repository.getPokemonListFromRemote(limit, offset)
+            Resource.Success(response)
+        } catch (e: Exception) {
+            val error = errorHandler.getError(e)
+            Resource.Error(error)
+        }
+        return output
     }
 
 }
