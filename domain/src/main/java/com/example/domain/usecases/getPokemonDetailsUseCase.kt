@@ -1,12 +1,25 @@
 package com.example.domain.usecases
 
 import com.example.domain.models.pokemondetails.PokemonDetails
-import kotlinx.coroutines.flow.Flow
+import com.example.domain.repositories.PokemonRepository
+import com.example.domain.util.ErrorHandler
+import com.example.domain.util.Resource
 
-class getPokemonDetailsUseCase {
+class getPokemonDetailsUseCase(
+    private val repository: PokemonRepository,
+    private val errorHandler: ErrorHandler
+) {
 
-    fun getPokemonDetails() {
-
+    suspend fun getPokemonDetails(pokemonName: String): Resource<PokemonDetails> {
+        val output: Resource<PokemonDetails> = try {
+            val response = repository.getPokemonDetailsFromLocal(pokemonName)
+                ?: repository.getPokemonDetailsFromRemote(pokemonName)
+            Resource.Success(response)
+        } catch (e: Exception) {
+            val error = errorHandler.getError(e)
+            Resource.Error(error)
+        }
+        return output
     }
 
 }

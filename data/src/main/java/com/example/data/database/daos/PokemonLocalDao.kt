@@ -19,6 +19,6 @@ interface PokemonLocalDao {
     suspend fun getAllPokemonLocal(): List<PokemonLocal>
 
     @Query("SELECT * FROM pokemons WHERE name LIKE :pokemonName")
-    suspend fun getPokemonLocal(pokemonName: String): PokemonLocal
+    suspend fun getPokemonLocal(pokemonName: String): PokemonLocal?
 
 }

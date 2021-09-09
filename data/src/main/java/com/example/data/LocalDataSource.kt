@@ -13,12 +13,14 @@ class LocalDataSource(
     private val mapper: MapperImpl
 ) {
 
-    suspend fun getPokemonDetails(pokemonName: String): PokemonDetails =
-        mapper.mapPokemonLocalToPokemonDetails(
-            pokemon = pokeDao.getPokemonLocal(pokemonName),
-            stats = statDao.getStatsLocal(pokemonName),
-            types = typeDao.getTypesLocal(pokemonName)
-        )
+    suspend fun getPokemonDetails(pokemonName: String): PokemonDetails? =
+        pokeDao.getPokemonLocal(pokemonName)?.let {
+            mapper.mapPokemonLocalToPokemonDetails(
+                pokemon = it,
+                stats = statDao.getStatsLocal(pokemonName),
+                types = typeDao.getTypesLocal(pokemonName)
+            )
+        }
 
     suspend fun getPokemonDetailsList(): List<PokemonDetails> {
         val output = mutableListOf<PokemonDetails>()
