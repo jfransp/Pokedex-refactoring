@@ -1,7 +1,9 @@
 package com.example.domain.usecases
 
-interface SavePokemonUseCase {
+class SavePokemonUseCase {
 
-    fun savePokemon()
+    fun savePokemon() {
+
+    }
 
 }

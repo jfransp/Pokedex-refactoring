@@ -1,7 +1,9 @@
 package com.example.domain.usecases
 
-interface getSavedPokemonListUseCase {
+class getSavedPokemonListUseCase {
 
-    fun getSavedPokemonList()
+    fun getSavedPokemonList() {
+
+    }
 
 }
