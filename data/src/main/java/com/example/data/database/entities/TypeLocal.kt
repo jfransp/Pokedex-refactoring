@@ -7,6 +7,7 @@ import androidx.room.PrimaryKey
 class TypeLocal(
     val slot: Int,
     val type: String,
-    @PrimaryKey
-    val poke_id: Int? = null
+    val name: String,
+    @PrimaryKey(autoGenerate = true)
+    val type_id: Int? = null
 )

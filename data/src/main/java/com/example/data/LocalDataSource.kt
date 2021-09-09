@@ -13,11 +13,11 @@ class LocalDataSource(
     private val mapper: MapperImpl
 ) {
 
-    suspend fun getPokemon(pokemonId: Int): PokemonDetails =
+    suspend fun getPokemonDetails(pokemonName: String): PokemonDetails =
         mapper.mapPokemonLocalToPokemonDetails(
-            pokemon = pokeDao.getPokemonLocal(pokemonId),
-            stats = statDao.getStatsLocal(pokemonId),
-            types = typeDao.getTypesLocal(pokemonId)
+            pokemon = pokeDao.getPokemonLocal(pokemonName),
+            stats = statDao.getStatsLocal(pokemonName),
+            types = typeDao.getTypesLocal(pokemonName)
         )
 
     suspend fun getPokemonDetailsList(): List<PokemonDetails> {
@@ -25,8 +25,8 @@ class LocalDataSource(
 
         val result = pokeDao.getAllPokemonLocal()
         for (pokemonLocal in result) {
-            val stats = statDao.getStatsLocal(pokemonId = pokemonLocal.id)
-            val types = typeDao.getTypesLocal(pokemonId = pokemonLocal.id)
+            val stats = statDao.getStatsLocal(pokemonName = pokemonLocal.name)
+            val types = typeDao.getTypesLocal(pokemonName = pokemonLocal.name)
             output.add(mapper.mapPokemonLocalToPokemonDetails(
                 pokemon = pokemonLocal,
                 stats = stats,
@@ -48,8 +48,8 @@ class LocalDataSource(
             }
         }
 
-    suspend fun deletePokemon(pokemonId: Int) =
-        pokemonId.let {
+    suspend fun deletePokemon(pokemonName: String) =
+        pokemonName.let {
             pokeDao.deletePokemonLocal(it)
             statDao.deleteStatLocal(it)
             typeDao.deleteTypeLocal(it)

@@ -12,14 +12,14 @@ interface TypeLocalDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertTypeLocal(typeLocal: TypeLocal)
 
-    @Query("DELETE FROM types WHERE poke_id LIKE :pokemonId")
-    suspend fun deleteTypeLocal(pokemonId: Int)
+    @Query("DELETE FROM types WHERE name LIKE :pokemonName")
+    suspend fun deleteTypeLocal(pokemonName: String)
 
     //Função provavelmente não será usada
     @Query("SELECT * FROM types")
     suspend fun getAllTypeLocal(): List<TypeLocal>
 
-    @Query("SELECT * FROM types WHERE poke_id LIKE :pokemonId")
-    suspend fun getTypesLocal(pokemonId: Int): List<TypeLocal>
+    @Query("SELECT * FROM types WHERE name LIKE :pokemonName")
+    suspend fun getTypesLocal(pokemonName: String): List<TypeLocal>
 
 }

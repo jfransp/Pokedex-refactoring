@@ -6,8 +6,8 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "pokemons")
 class PokemonLocal(
     val height: Int,
-    @PrimaryKey
     val id: Int,
+    @PrimaryKey
     val name: String,
     val weight: Int
 )

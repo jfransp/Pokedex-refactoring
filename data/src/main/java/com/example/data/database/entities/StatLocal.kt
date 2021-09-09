@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "stats")
 class StatLocal(
     val base_stat: Int,
-    val poke_id: Int,
+    val name: String,
     @PrimaryKey(autoGenerate = true)
-    val type_id: Int? = null
+    val stat_id: Int? = null
 )

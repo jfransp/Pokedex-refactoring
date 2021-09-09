@@ -13,8 +13,8 @@ interface PokemonRepository {
 
     suspend fun deletePokemon(pokemonId: Int)
 
-    suspend fun getPokemonDetailsListFromLocal()
+    suspend fun getPokemonDetailsListFromLocal(): List<PokemonDetails>
 
-    suspend fun getPokemonDetailsFromLocal(): PokemonDetails
+    suspend fun getPokemonDetailsFromLocal(pokemonName: String): PokemonDetails
 
 }

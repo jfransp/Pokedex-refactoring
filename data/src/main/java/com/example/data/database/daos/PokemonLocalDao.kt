@@ -12,13 +12,13 @@ interface PokemonLocalDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertPokemonLocal(pokemon: PokemonLocal)
 
-    @Query("DELETE FROM pokemons WHERE id LIKE :pokemonId")
-    suspend fun deletePokemonLocal(pokemonId: Int)
+    @Query("DELETE FROM pokemons WHERE name LIKE :pokemonName")
+    suspend fun deletePokemonLocal(pokemonName: String)
 
     @Query("SELECT * FROM pokemons")
     suspend fun getAllPokemonLocal(): List<PokemonLocal>
 
-    @Query("SELECT * FROM pokemons WHERE id LIKE :pokemonId")
-    suspend fun getPokemonLocal(pokemonId: Int): PokemonLocal
+    @Query("SELECT * FROM pokemons WHERE name LIKE :pokemonName")
+    suspend fun getPokemonLocal(pokemonName: String): PokemonLocal
 
 }
