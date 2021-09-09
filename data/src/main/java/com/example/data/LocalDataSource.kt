@@ -20,6 +20,23 @@ class LocalDataSource(
             types = typeDao.getTypesLocal(pokemonId)
         )
 
+    suspend fun getPokemonLocalList(): List<PokemonDetails> {
+        val output = mutableListOf<PokemonDetails>()
+
+        val result = pokeDao.getAllPokemonLocal()
+        for (pokemonLocal in result) {
+            val stats = statDao.getStatsLocal(pokemonId = pokemonLocal.id)
+            val types = typeDao.getTypesLocal(pokemonId = pokemonLocal.id)
+            output.add(mapper.mapPokemonLocalToPokemonDetails(
+                pokemon = pokemonLocal,
+                stats = stats,
+                types = types
+            ))
+        }
+
+        return output
+    }
+
     suspend fun insertPokemon(pokemon: PokemonDetails) =
         mapper.mapPokemonDetailsToPokemonLocal(pokemon).let {
             pokeDao.insertPokemonLocal(it.first)
