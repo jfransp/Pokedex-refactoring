@@ -37,6 +37,14 @@ android {
     buildFeatures {
         viewBinding true
     }
+
+    lintOptions {
+        checkReleaseBuilds false
+    }
+}
+
+hilt {
+    enableExperimentalClasspathAggregation = true
 }
 
 dependencies {
