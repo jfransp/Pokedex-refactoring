@@ -9,8 +9,8 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.domain.models.pokemondetails.PokemonDetails
 import com.example.pokdex.R
-import com.example.pokdex.data.models.pokemondetails.PokemonDetails
 import com.example.pokdex.databinding.FragmentMyPokemonsBinding
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
@@ -33,13 +33,13 @@ class MyPokemonsFragment : Fragment(R.layout.fragment_my_pokemons), MyPokemonsRe
 
         setupRecyclerView()
 
-        /*viewModel.pokemonLiveData.observe(viewLifecycleOwner) { savedPokemonList ->
+        viewModel.pokemonLiveData.observe(viewLifecycleOwner) { savedPokemonList ->
             if (savedPokemonList.isEmpty()) {
                 binding.emptyRvMessage.visibility = View.VISIBLE
             } else {
                 binding.emptyRvMessage.visibility = View.GONE
             }
-        }*/
+        }
 
     }
 
@@ -85,15 +85,15 @@ class MyPokemonsFragment : Fragment(R.layout.fragment_my_pokemons), MyPokemonsRe
         }
 
 
-        /*viewModel.pokemonLiveData.observe(viewLifecycleOwner) { savedPokemonList ->
+        viewModel.pokemonLiveData.observe(viewLifecycleOwner) { savedPokemonList ->
             adapter.submitList(savedPokemonList)
-        }*/
+        }
     }
 
     override fun onItemClick(pokemon: PokemonDetails) {
         val action = MyPokemonsFragmentDirections.actionMyPokemonsFragmentToPokemonDetails(
-            pokemonId = pokemon.id,
-            isFetchFromRemote = false
+            pokemonName = pokemon.name,
+            isSavedPokemon = true
         )
         view?.findNavController()?.navigate(action)
     }

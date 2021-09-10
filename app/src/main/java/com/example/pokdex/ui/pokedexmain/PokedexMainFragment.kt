@@ -13,6 +13,7 @@ import com.example.pokdex.R
 import com.example.pokdex.adapters.PokedexPagingAdapter
 import com.example.pokdex.databinding.FragmentPokedexMainBinding
 import com.example.pokdex.util.LoadState
+import com.example.pokdex.util.selectErrorMessageFromErrorEntity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -64,23 +65,15 @@ class PokedexMainFragment : Fragment(R.layout.fragment_pokedex_main), PokedexPag
     private fun showErrorMessage(error: ErrorEntity) {
         binding.apply {
             recyclerView.visibility = INVISIBLE
-            errorMessage.text = when (error) {
-                is ErrorEntity.Network -> getString(R.string.network_error_message)
-                is ErrorEntity.NotFound -> getString(R.string.not_found_error_message)
-                is ErrorEntity.AccessDenied -> getString(R.string.access_denied_error_message)
-                is ErrorEntity.ServiceUnavailable -> getString(R.string.service_unavailable_error_message)
-                is ErrorEntity.RequestTimedOut -> getString(R.string.request_timed_out_error_message)
-                is ErrorEntity.Unknown -> getString(R.string.unkown_error_message)
-                else -> getString(R.string.unkown_error_message)
-            }
+            errorMessage.text = selectErrorMessageFromErrorEntity(error)
             errorMessage.visibility = VISIBLE
         }
     }
 
     override fun onItemClick(pokemon: Pokemon) {
         val action = PokedexMainFragmentDirections.actionPokedexMainToPokemonDetails(
-            pokemon = null,
-            isFetchFromRemote = true
+            pokemonName = pokemon.name,
+            isSavedPokemon = false
         )
         view?.findNavController()?.navigate(action)
     }

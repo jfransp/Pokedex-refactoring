@@ -14,9 +14,9 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
+import com.example.domain.models.pokemondetails.PokemonDetails
+import com.example.domain.models.pokemondetails.Type
 import com.example.pokdex.R
-import com.example.pokdex.data.models.pokemondetails.PokemonDetails
-import com.example.pokdex.data.models.pokemondetails.Type
 import com.example.pokdex.databinding.SavedPokemonItemBinding
 import com.example.pokdex.util.capitalizeUtil
 import com.example.pokdex.util.getColorFromImage

@@ -1,46 +1,57 @@
 package com.example.pokdex.ui.pokemondetails
 
 import androidx.lifecycle.*
-import com.example.pokdex.data.models.pokemondetails.PokemonDetails
-import com.example.pokdex.data.models.pokemonlist.Pokemon
+import com.example.domain.models.pokemondetails.PokemonDetails
+import com.example.domain.usecases.GetPokemonDetailsUseCase
+import com.example.domain.usecases.SavePokemonUseCase
+import com.example.domain.util.ErrorEntity
+import com.example.domain.util.Resource
+import com.example.pokdex.util.LoadState
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class PokemonDetailsViewModel @Inject constructor(
-    state: SavedStateHandle
+    private val getPokemonDetailsUseCase: GetPokemonDetailsUseCase,
+    private val savePokemonUseCase: SavePokemonUseCase,
+    private val state: SavedStateHandle
 ): ViewModel() {
 
-    val pokemon = state.get<Pokemon>("pokemon")
-    private val pokemonId = state.get<Int>("pokemonId")
-    private val isFetchFromRemote = state.get<Boolean>("isFetchFromRemote")
+    private val pokemonName = state.get<String>("pokemonName")!!
+    val isSavedPokemon = state.get<Boolean>("isSavedPokemon")!!
 
-    private var _result = MutableLiveData<PokemonDetails>()
+    private val _loadStateObservable: MutableStateFlow<LoadState?> = MutableStateFlow(null)
+    val loadStateObservable = _loadStateObservable.asLiveData()
+
+    private var _result = MutableLiveData<PokemonDetails>()!!
     val pokemonLiveData: LiveData<PokemonDetails> = _result
 
 
-    fun fetchData() {
-        if (isFetchFromRemote == true) {
-            getPokemonDetails()
-        } else {
-            getLocalPokemon()
+    fun fetchData() = viewModelScope.launch {
+        when (val response = pokemonName.let { getPokemonDetailsUseCase.getPokemonDetails(it) }) {
+            is Resource.Error -> error(response.error)
+            is Resource.Success -> {
+                _result.value = response.data
+                success()
+            }
         }
-    }
-
-    private fun getPokemonDetails() = viewModelScope.launch {
-        TODO()
-    }
-
-    private fun getLocalPokemon() = viewModelScope.launch {
-        TODO()
     }
 
 
     fun savePokemon(pokemon: PokemonDetails) {
         viewModelScope.launch {
-            TODO()
+            savePokemonUseCase.savePokemon(pokemon)
         }
+    }
+
+    private fun success() {
+        _loadStateObservable.value = LoadState.SUCCESS
+    }
+
+    private fun error(error: ErrorEntity) {
+        _loadStateObservable.value = LoadState.ERROR(error)
     }
 
 }

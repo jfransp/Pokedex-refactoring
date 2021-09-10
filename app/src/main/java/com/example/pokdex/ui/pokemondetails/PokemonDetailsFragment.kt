@@ -9,16 +9,16 @@ import androidx.annotation.RequiresApi
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
+import com.example.domain.models.pokemondetails.PokemonDetails
+import com.example.domain.models.pokemondetails.Type
+import com.example.domain.util.ErrorEntity
 import com.example.pokdex.R
-import com.example.pokdex.data.models.pokemondetails.PokemonDetails
-import com.example.pokdex.data.models.pokemondetails.Type
 import com.example.pokdex.databinding.FragmentPokemonDetailsBinding
 import com.example.pokdex.util.*
 import dagger.hilt.android.AndroidEntryPoint
@@ -37,6 +37,8 @@ class PokemonDetailsFragment : Fragment(R.layout.fragment_pokemon_details) {
         super.onViewCreated(view, savedInstanceState)
 
         _binding = FragmentPokemonDetailsBinding.bind(view)
+
+        setupLoadStateHandler()
 
         viewModel.pokemonLiveData.observe(viewLifecycleOwner, { pokemonDetails ->
             populateScreenData(pokemonDetails)
@@ -167,10 +169,22 @@ class PokemonDetailsFragment : Fragment(R.layout.fragment_pokemon_details) {
     }
 
     private fun setupSavePokemonButton() {
-        binding.savePokemonButton.setOnClickListener {
-            viewModel.pokemonLiveData.value?.let { pokemon ->
-                viewModel.savePokemon(pokemon)
-                context?.toast("${pokemon.name} saved!")
+        if (viewModel.isSavedPokemon) {
+            binding.savePokemonButton.visibility = View.GONE
+        } else {
+            binding.savePokemonButton.setOnClickListener {
+                viewModel.pokemonLiveData.value?.let { pokemon ->
+                    viewModel.savePokemon(pokemon)
+                    context?.toast("${pokemon.name} saved!")
+                }
+            }
+        }
+    }
+
+    private fun setupLoadStateHandler() {
+        viewModel.loadStateObservable.observe(viewLifecycleOwner) { loadState ->
+            if (loadState is LoadState.ERROR) {
+                showErrorMessage(loadState.error)
             }
         }
     }
@@ -178,6 +192,13 @@ class PokemonDetailsFragment : Fragment(R.layout.fragment_pokemon_details) {
     private fun setupBackButton() {
         binding.backButton.setOnClickListener {
             findNavController().navigateUp()
+        }
+    }
+
+    private fun showErrorMessage(error: ErrorEntity) {
+        binding.apply {
+            errorMessage.text = selectErrorMessageFromErrorEntity(error)
+            errorMessage.visibility = View.VISIBLE
         }
     }
 

@@ -1,17 +1,20 @@
 package com.example.pokdex.ui.mypokemons
 
 import androidx.lifecycle.*
-import com.example.pokdex.data.models.pokemondetails.PokemonDetails
-import com.example.pokdex.data.repository.PokemonRepositoryold
+import com.example.domain.models.pokemondetails.PokemonDetails
+import com.example.domain.usecases.DeleteSavedPokemonUseCase
+import com.example.domain.usecases.GetSavedPokemonListUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class MyPokemonsViewModel @Inject constructor(
+    private val deleteSavedPokemonUseCase: DeleteSavedPokemonUseCase,
+    private val getSavedPokemonListUseCase: GetSavedPokemonListUseCase
 ): ViewModel() {
 
-    val pokemonLiveData: Nothing = TODO()
+    val pokemonListLiveData: Nothing = TODO()
 
     fun deletePokemon(pokemonId: Int) {
         viewModelScope.launch {

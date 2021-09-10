@@ -4,8 +4,8 @@ import android.content.Context
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.core.graphics.drawable.DrawableCompat
+import com.example.domain.models.pokemondetails.Type
 import com.example.pokdex.R
-import com.example.pokdex.data.models.pokemondetails.Type
 import com.example.pokdex.databinding.FragmentPokemonDetailsBinding
 import com.example.pokdex.databinding.SavedPokemonItemBinding
 

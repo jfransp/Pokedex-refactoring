@@ -23,17 +23,10 @@
         android:label="Pokemon Details"
         tools:layout="@layout/fragment_pokemon_details">
         <argument
-            android:name="pokemon"
-            android:defaultValue="@null"
-            app:argType="com.example.pokdex.data.models.pokemonlist.Pokemon"
-            app:nullable="true" />
+            android:name="pokemonName"
+            app:argType="string" />
         <argument
-            android:name="pokemonId"
-            android:defaultValue="0"
-            app:argType="integer" />
-        <argument
-            android:name="isFetchFromRemote"
-            android:defaultValue="false"
+            android:name="isSavedPokemon"
             app:argType="boolean" />
     </fragment>
     <fragment

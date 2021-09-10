@@ -30,6 +30,7 @@
         <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/josan/AndroidStudioProjects/Pokdex/app/src/main/res/menu/menu_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_pokedex_main.xml" value="0.4036458333333333" />
+        <entry key="app/src/main/res/layout/fragment_pokemon_details.xml" value="0.265625" />
       </map>
     </option>
   </component>
