@@ -1,10 +1,7 @@
 package com.example.pokdex.di
 
 import com.example.domain.repositories.PokemonRepository
-import com.example.domain.usecases.DeleteSavedPokemonUseCase
-import com.example.domain.usecases.GetPokemonDetailsUseCase
-import com.example.domain.usecases.GetSavedPokemonListUseCase
-import com.example.domain.usecases.SavePokemonUseCase
+import com.example.domain.usecases.*
 import com.example.domain.util.ErrorHandler
 import dagger.Module
 import dagger.Provides
@@ -32,7 +29,7 @@ object UseCasesModule {
     fun provideGetPokemonListUseCase(
         repository: PokemonRepository,
         errorHandler: ErrorHandler
-    ) = GetPokemonDetailsUseCase(repository, errorHandler)
+    ) = GetPokemonListUseCase(repository, errorHandler)
 
     @Provides
     @Singleton

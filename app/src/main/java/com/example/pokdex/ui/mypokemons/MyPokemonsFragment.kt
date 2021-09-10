@@ -33,13 +33,13 @@ class MyPokemonsFragment : Fragment(R.layout.fragment_my_pokemons), MyPokemonsRe
 
         setupRecyclerView()
 
-        viewModel.pokemonLiveData.observe(viewLifecycleOwner) { savedPokemonList ->
+        /*viewModel.pokemonLiveData.observe(viewLifecycleOwner) { savedPokemonList ->
             if (savedPokemonList.isEmpty()) {
                 binding.emptyRvMessage.visibility = View.VISIBLE
             } else {
                 binding.emptyRvMessage.visibility = View.GONE
             }
-        }
+        }*/
 
     }
 
@@ -85,9 +85,9 @@ class MyPokemonsFragment : Fragment(R.layout.fragment_my_pokemons), MyPokemonsRe
         }
 
 
-        viewModel.pokemonLiveData.observe(viewLifecycleOwner) { savedPokemonList ->
+        /*viewModel.pokemonLiveData.observe(viewLifecycleOwner) { savedPokemonList ->
             adapter.submitList(savedPokemonList)
-        }
+        }*/
     }
 
     override fun onItemClick(pokemon: PokemonDetails) {

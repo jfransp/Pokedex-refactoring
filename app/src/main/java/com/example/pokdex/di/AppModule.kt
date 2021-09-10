@@ -18,7 +18,6 @@ import com.example.util.ErrorHandlerImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
@@ -39,7 +38,7 @@ object AppModule {
     @Singleton
     fun provideRemoteDataSource(
         api: PokeApi,
-        mapper: MapperImpl
+        mapper: Mapper
     ) = RemoteDataSource(api, mapper)
 
     @Provides
@@ -48,7 +47,7 @@ object AppModule {
         pokeDao: PokemonLocalDao,
         statDao: StatLocalDao,
         typeDao: TypeLocalDao,
-        mapper: MapperImpl
+        mapper: Mapper
     ) = LocalDataSource(pokeDao, statDao, typeDao, mapper)
 
     //ErrorHandler
@@ -65,7 +64,7 @@ object AppModule {
     @Provides
     @Singleton
     fun provideDatabase(
-        @ApplicationContext app: Application
+        app: Application
     ) = Room.databaseBuilder(app, PokemonDatabase::class.java, "saved_pokemon_data")
         .fallbackToDestructiveMigration()
         .build()

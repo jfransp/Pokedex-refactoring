@@ -1,5 +1,6 @@
 package com.example.pokdex.adapters
 
+import android.annotation.SuppressLint
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.view.LayoutInflater
@@ -15,8 +16,8 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
+import com.example.domain.models.pokemonlist.Pokemon
 import com.example.pokdex.R
-import com.example.pokdex.data.models.pokemonlist.Pokemon
 import com.example.pokdex.databinding.PokemonListItemBinding
 import com.example.pokdex.util.capitalizeUtil
 import com.example.pokdex.util.getColorFromImage
@@ -114,6 +115,7 @@ class PokedexPagingAdapter(
             override fun areItemsTheSame(oldItem: Pokemon, newItem: Pokemon) =
                 oldItem.url == newItem.url
 
+            @SuppressLint("DiffUtilEquals")
             override fun areContentsTheSame(oldItem: Pokemon, newItem: Pokemon) =
                 oldItem == newItem
         }

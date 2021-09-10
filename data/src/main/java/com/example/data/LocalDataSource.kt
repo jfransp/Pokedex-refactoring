@@ -4,13 +4,13 @@ import com.example.data.database.daos.PokemonLocalDao
 import com.example.data.database.daos.StatLocalDao
 import com.example.data.database.daos.TypeLocalDao
 import com.example.domain.models.pokemondetails.PokemonDetails
-import com.example.mappers.MapperImpl
+import com.example.mappers.Mapper
 
 class LocalDataSource(
     private val pokeDao: PokemonLocalDao,
     private val statDao: StatLocalDao,
     private val typeDao: TypeLocalDao,
-    private val mapper: MapperImpl
+    private val mapper: Mapper
 ) {
 
     suspend fun getPokemonDetails(pokemonName: String): PokemonDetails? =

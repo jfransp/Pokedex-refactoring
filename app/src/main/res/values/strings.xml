@@ -17,4 +17,12 @@
     <string name="my_pokemons_header_title">My Pokemons</string>
     <string name="pokedex_header_title">Pokédex</string>
     <string name="empy_saved_pokemons_message">You don\'t have any saved pokémons yet. \n Get going!</string>
+
+    <!-- Error messages -->
+    <string name="network_error_message">No Internet Connection</string>
+    <string name="not_found_error_message">Content not found</string>
+    <string name="access_denied_error_message">You have no permission to request data</string>
+    <string name="service_unavailable_error_message">Server is offline</string>
+    <string name="request_timed_out_error_message">Request timed out</string>
+    <string name="unkown_error_message">Unknown error occurred</string>
 </resources>
