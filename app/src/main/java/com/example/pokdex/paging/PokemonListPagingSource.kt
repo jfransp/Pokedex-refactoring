@@ -10,7 +10,7 @@ import com.example.pokdex.util.Constants.Companion.PAGING_STARTING_OFFSET_INDEX
 
 class PokemonListPagingSource(
     private val getPokemonListUseCase: GetPokemonListUseCase,
-    private val loadStatHandler: OnPagingLoadStat
+    private val loadStateHandler: OnPagingLoadState
 ) : PagingSource<Int, Pokemon>() {
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Pokemon> {
@@ -24,11 +24,11 @@ class PokemonListPagingSource(
 
         return when (response) {
             is Resource.Error -> {
-                loadStatHandler.error(response.error)
+                loadStateHandler.error(response.error)
                 LoadResult.Error(Exception())
             }
             is Resource.Success -> {
-                loadStatHandler.success()
+                loadStateHandler.success()
                 val data = response.data.results
                 LoadResult.Page(
                     data = data,
@@ -44,7 +44,7 @@ class PokemonListPagingSource(
         return state.anchorPosition
     }
 
-    interface OnPagingLoadStat {
+    interface OnPagingLoadState {
         fun success()
         fun error(error: ErrorEntity)
     }

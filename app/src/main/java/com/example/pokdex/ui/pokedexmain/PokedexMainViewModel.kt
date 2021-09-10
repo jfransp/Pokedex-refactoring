@@ -16,7 +16,7 @@ import javax.inject.Inject
 @HiltViewModel
 class PokedexMainViewModel @Inject constructor(
     private val getPokemonListUseCase: GetPokemonListUseCase
-): ViewModel(), PokemonListPagingSource.OnPagingLoadStat {
+): ViewModel(), PokemonListPagingSource.OnPagingLoadState {
 
     private val _loadStateObservable: MutableStateFlow<LoadState?> = MutableStateFlow(null)
     val loadStateObservable = _loadStateObservable.asLiveData()
