@@ -11,7 +11,7 @@ import com.example.data.database.entities.TypeLocal
 
 @Database (
     entities = [PokemonLocal::class, StatLocal::class, TypeLocal::class],
-    version = 0,
+    version = 1,
     exportSchema = false
 )
 abstract class PokemonDatabase: RoomDatabase() {
