@@ -26,8 +26,6 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class PokemonDetailsFragment : Fragment(R.layout.fragment_pokemon_details) {
 
-    private val args: PokemonDetailsFragmentArgs by navArgs()
-
     private val viewModel: PokemonDetailsViewModel by viewModels()
 
     private var _binding: FragmentPokemonDetailsBinding? = null
