@@ -10,8 +10,11 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.models.pokemondetails.PokemonDetails
+import com.example.domain.util.ErrorEntity
 import com.example.pokdex.R
 import com.example.pokdex.databinding.FragmentMyPokemonsBinding
+import com.example.pokdex.util.LoadState
+import com.example.pokdex.util.selectErrorMessageFromErrorEntity
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -33,13 +36,17 @@ class MyPokemonsFragment : Fragment(R.layout.fragment_my_pokemons), MyPokemonsRe
 
         setupRecyclerView()
 
-        viewModel.pokemonLiveData.observe(viewLifecycleOwner) { savedPokemonList ->
+        viewModel.pokemonListLiveData.observe(viewLifecycleOwner) { savedPokemonList ->
             if (savedPokemonList.isEmpty()) {
                 binding.emptyRvMessage.visibility = View.VISIBLE
             } else {
                 binding.emptyRvMessage.visibility = View.GONE
             }
         }
+
+        viewModel.fetchData()
+
+        setupLoadStateHandler()
 
     }
 
@@ -68,7 +75,7 @@ class MyPokemonsFragment : Fragment(R.layout.fragment_my_pokemons), MyPokemonsRe
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 val position = viewHolder.absoluteAdapterPosition
                 val pokemon = adapter.currentList[position]
-                viewModel.deletePokemon(pokemon.id)
+                viewModel.deletePokemon(pokemon.name)
                 view?.let {
                     Snackbar.make(it, "Pokemon deleted", Snackbar.LENGTH_LONG).apply {
                         setAction("Undo") {
@@ -85,7 +92,7 @@ class MyPokemonsFragment : Fragment(R.layout.fragment_my_pokemons), MyPokemonsRe
         }
 
 
-        viewModel.pokemonLiveData.observe(viewLifecycleOwner) { savedPokemonList ->
+        viewModel.pokemonListLiveData.observe(viewLifecycleOwner) { savedPokemonList ->
             adapter.submitList(savedPokemonList)
         }
     }
@@ -96,6 +103,22 @@ class MyPokemonsFragment : Fragment(R.layout.fragment_my_pokemons), MyPokemonsRe
             isSavedPokemon = true
         )
         view?.findNavController()?.navigate(action)
+    }
+
+    private fun setupLoadStateHandler() {
+        viewModel.loadStateObservable.observe(viewLifecycleOwner) { loadState ->
+            if (loadState is LoadState.ERROR) {
+                showErrorMessage(loadState.error)
+            }
+        }
+    }
+
+    private fun showErrorMessage(error: ErrorEntity) {
+        binding.apply {
+            recyclerView.visibility = View.INVISIBLE
+            errorMessage.text = context?.let { selectErrorMessageFromErrorEntity(it, error) }
+            errorMessage.visibility = View.VISIBLE
+        }
     }
 
     override fun onDestroyView() {

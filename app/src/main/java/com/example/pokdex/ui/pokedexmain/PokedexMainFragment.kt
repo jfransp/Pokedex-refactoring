@@ -65,7 +65,7 @@ class PokedexMainFragment : Fragment(R.layout.fragment_pokedex_main), PokedexPag
     private fun showErrorMessage(error: ErrorEntity) {
         binding.apply {
             recyclerView.visibility = INVISIBLE
-            errorMessage.text = selectErrorMessageFromErrorEntity(error)
+            errorMessage.text = context?.let { selectErrorMessageFromErrorEntity(it,error) }
             errorMessage.visibility = VISIBLE
         }
     }

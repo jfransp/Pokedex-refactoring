@@ -197,7 +197,7 @@ class PokemonDetailsFragment : Fragment(R.layout.fragment_pokemon_details) {
 
     private fun showErrorMessage(error: ErrorEntity) {
         binding.apply {
-            errorMessage.text = selectErrorMessageFromErrorEntity(error)
+            errorMessage.text = context?.let { selectErrorMessageFromErrorEntity(it, error) }
             errorMessage.visibility = View.VISIBLE
         }
     }
