@@ -11,14 +11,13 @@ class GetPokemonListUseCase(
 ) {
 
     suspend fun getPokemonList(limit: Int, offset: Int): Resource<PokemonList> {
-        val output: Resource<PokemonList> = try {
+        return try {
             val response = repository.getPokemonListFromRemote(limit, offset)
             Resource.Success(response)
         } catch (e: Exception) {
             val error = errorHandler.getError(e)
             Resource.Error(error)
         }
-        return output
     }
 
 }

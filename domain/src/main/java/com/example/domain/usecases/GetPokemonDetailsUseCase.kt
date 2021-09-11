@@ -11,7 +11,7 @@ class GetPokemonDetailsUseCase(
 ) {
 
     suspend fun getPokemonDetails(pokemonName: String): Resource<PokemonDetails> {
-        val output: Resource<PokemonDetails> = try {
+        return try {
             val response = repository.getPokemonDetailsFromLocal(pokemonName)
                 ?: repository.getPokemonDetailsFromRemote(pokemonName)
             Resource.Success(response)
@@ -19,7 +19,6 @@ class GetPokemonDetailsUseCase(
             val error = errorHandler.getError(e)
             Resource.Error(error)
         }
-        return output
     }
 
 }
