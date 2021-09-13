@@ -34,6 +34,8 @@ class MyPokemonsFragment : Fragment(R.layout.fragment_my_pokemons), MyPokemonsRe
 
         _binding = FragmentMyPokemonsBinding.bind(view)
 
+        setupLoadStateHandler()
+
         setupRecyclerView()
 
         viewModel.pokemonListLiveData.observe(viewLifecycleOwner) { savedPokemonList ->
@@ -45,8 +47,6 @@ class MyPokemonsFragment : Fragment(R.layout.fragment_my_pokemons), MyPokemonsRe
         }
 
         viewModel.fetchData()
-
-        setupLoadStateHandler()
 
     }
 
