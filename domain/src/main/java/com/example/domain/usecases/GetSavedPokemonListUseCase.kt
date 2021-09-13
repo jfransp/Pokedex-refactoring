@@ -15,14 +15,13 @@ class GetSavedPokemonListUseCase(
     //error in case of an exception
 
     suspend fun getSavedPokemonList(): Resource<List<PokemonDetails>> {
-        val output: Resource<List<PokemonDetails>> = try {
+        return try {
             val result = repository.getPokemonDetailsListFromLocal()
             Resource.Success(result)
         } catch (e: Exception) {
             val error = errorHandler.getError(e)
             Resource.Error(error)
         }
-        return output
     }
 
 }
