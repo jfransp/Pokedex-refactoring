@@ -13,8 +13,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-@HiltViewModel
-class MyPokemonsViewModel @Inject constructor(
+//@HiltViewModel
+class MyPokemonsViewModel(
     private val deleteSavedPokemonUseCase: DeleteSavedPokemonUseCase,
     private val getSavedPokemonListUseCase: GetSavedPokemonListUseCase,
     private val savePokemonUseCase: SavePokemonUseCase

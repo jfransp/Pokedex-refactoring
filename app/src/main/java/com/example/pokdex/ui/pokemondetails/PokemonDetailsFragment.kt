@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment
 import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.core.graphics.drawable.DrawableCompat
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
@@ -21,12 +20,13 @@ import com.example.domain.util.ErrorEntity
 import com.example.pokdex.R
 import com.example.pokdex.databinding.FragmentPokemonDetailsBinding
 import com.example.pokdex.util.*
-import dagger.hilt.android.AndroidEntryPoint
+import org.koin.androidx.viewmodel.ext.android.stateViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-@AndroidEntryPoint
+//@AndroidEntryPoint
 class PokemonDetailsFragment : Fragment(R.layout.fragment_pokemon_details) {
 
-    private val viewModel: PokemonDetailsViewModel by viewModels()
+    private val viewModel: PokemonDetailsViewModel by stateViewModel()
 
     private var _binding: FragmentPokemonDetailsBinding? = null
     private val binding get() = _binding!!

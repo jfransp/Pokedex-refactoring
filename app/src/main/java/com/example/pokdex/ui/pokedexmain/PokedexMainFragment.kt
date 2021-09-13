@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.view.View.*
-import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.domain.models.pokemonlist.Pokemon
@@ -15,11 +14,12 @@ import com.example.pokdex.databinding.FragmentPokedexMainBinding
 import com.example.pokdex.util.LoadState
 import com.example.pokdex.util.selectErrorMessageFromErrorEntity
 import dagger.hilt.android.AndroidEntryPoint
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-@AndroidEntryPoint
+//@AndroidEntryPoint
 class PokedexMainFragment : Fragment(R.layout.fragment_pokedex_main), PokedexPagingAdapter.IAdapter {
 
-    private val viewModel: PokedexMainViewModel by viewModels()
+    private val viewModel: PokedexMainViewModel by viewModel()
 
     private var _binding: FragmentPokedexMainBinding? = null
     private val binding get() = _binding!!
@@ -76,7 +76,7 @@ class PokedexMainFragment : Fragment(R.layout.fragment_pokedex_main), PokedexPag
             isSavedPokemon = false
         )
         view?.findNavController()?.navigate(action)
-    }
+    }   
 
     override fun onDestroyView() {
         super.onDestroyView()

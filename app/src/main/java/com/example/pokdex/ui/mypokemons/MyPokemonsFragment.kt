@@ -4,7 +4,6 @@ import MyPokemonsRecyclerViewAdapter
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,11 +16,12 @@ import com.example.pokdex.util.LoadState
 import com.example.pokdex.util.selectErrorMessageFromErrorEntity
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-@AndroidEntryPoint
+//@AndroidEntryPoint
 class MyPokemonsFragment : Fragment(R.layout.fragment_my_pokemons), MyPokemonsRecyclerViewAdapter.IAdapter {
 
-    private val viewModel: MyPokemonsViewModel by viewModels()
+    private val viewModel: MyPokemonsViewModel by viewModel()
 
     private var _binding: FragmentMyPokemonsBinding? = null
     private val binding get() = _binding!!

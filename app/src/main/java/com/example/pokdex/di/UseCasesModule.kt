@@ -9,39 +9,39 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
-@Module
-@InstallIn(SingletonComponent::class)
-object UseCasesModule {
-
-    @Provides
-    @Singleton
-    fun provideDeletePokemonUseCase(repository: PokemonRepository) = DeleteSavedPokemonUseCase(repository)
-
-    @Provides
-    @Singleton
-    fun provideGetPokemonDetailsUseCase(
-        repository: PokemonRepository,
-        errorHandler: ErrorHandler
-    ) = GetPokemonDetailsUseCase(repository, errorHandler)
-
-    @Provides
-    @Singleton
-    fun provideGetPokemonListUseCase(
-        repository: PokemonRepository,
-        errorHandler: ErrorHandler
-    ) = GetPokemonListUseCase(repository, errorHandler)
-
-    @Provides
-    @Singleton
-    fun provideGetSavedPokemonListUseCase(
-        repository: PokemonRepository,
-        errorHandler: ErrorHandler
-    ) = GetSavedPokemonListUseCase(repository, errorHandler)
-
-    @Provides
-    @Singleton
-    fun provideSavePokemonUseCase(
-        repository: PokemonRepository
-    ) = SavePokemonUseCase(repository)
-
-}
+//@Module
+//@InstallIn(SingletonComponent::class)
+//object UseCasesModule {
+//
+//    @Provides
+//    @Singleton
+//    fun provideDeletePokemonUseCase(repository: PokemonRepository) = DeleteSavedPokemonUseCase(repository)
+//
+//    @Provides
+//    @Singleton
+//    fun provideGetPokemonDetailsUseCase(
+//        repository: PokemonRepository,
+//        errorHandler: ErrorHandler
+//    ) = GetPokemonDetailsUseCase(repository, errorHandler)
+//
+//    @Provides
+//    @Singleton
+//    fun provideGetPokemonListUseCase(
+//        repository: PokemonRepository,
+//        errorHandler: ErrorHandler
+//    ) = GetPokemonListUseCase(repository, errorHandler)
+//
+//    @Provides
+//    @Singleton
+//    fun provideGetSavedPokemonListUseCase(
+//        repository: PokemonRepository,
+//        errorHandler: ErrorHandler
+//    ) = GetSavedPokemonListUseCase(repository, errorHandler)
+//
+//    @Provides
+//    @Singleton
+//    fun provideSavePokemonUseCase(
+//        repository: PokemonRepository
+//    ) = SavePokemonUseCase(repository)
+//
+//}

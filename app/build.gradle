@@ -54,6 +54,7 @@ dependencies {
     def room_version = "2.3.0"
     def hilt_version = '2.35'
     def paging_version = '3.0.0'
+    def koin_version = "3.1.2"
 
     //Data layer
     api project (':data')
@@ -105,6 +106,17 @@ dependencies {
     //Dagger Hilt
     implementation("com.google.dagger:hilt-android:$hilt_version")
     kapt("com.google.dagger:hilt-android-compiler:$hilt_version")
+
+
+    //Koin Dependency Injection
+    implementation "io.insert-koin:koin-core:$koin_version"
+    testImplementation "io.insert-koin:koin-test:$koin_version"
+    implementation "io.insert-koin:koin-android:$koin_version"
+    implementation "io.insert-koin:koin-android-compat:$koin_version"
+    //Koin for Ktor
+    implementation "io.insert-koin:koin-ktor:$koin_version"
+    //SLF4J Logger
+    implementation "io.insert-koin:koin-logger-slf4j:$koin_version"
 
     //Paging 3
     implementation("androidx.paging:paging-runtime:$paging_version")
