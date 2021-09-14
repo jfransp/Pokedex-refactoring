@@ -26,30 +26,16 @@ class LocalDataSource(
         }
 
     fun getPokemonDetailsList(): Flow<List<PokemonDetails>> {
-        val outputList = mutableListOf<PokemonDetails>()
-
         return flow {
             pokeDao.getAllPokemonLocal().collect { pokemonLocalList ->
-                pokemonLocalList.map { pokemonLocal ->
-                    val stats = statDao.getStatsLocal(pokemonLocal.name).map { statLocal ->
-                        mapper.mapStatLocalToStat(statLocal)
-                    }
-                    val types = typeDao.getTypesLocal(pokemonLocal.name).map { typeLocal ->
-                        mapper.mapTypeLocalToType(typeLocal)
-                    }
-                    outputList.add(
-                        PokemonDetails(
-                            height = pokemonLocal.height,
-                            id = pokemonLocal.id,
-                            name = pokemonLocal.name,
-                            weight = pokemonLocal.weight,
-                            stats = stats,
-                            types = types
-                        )
+                emit(pokemonLocalList.map { pokemonLocal ->
+                    mapper.mapPokemonLocalToPokemonDetails(
+                        pokemon = pokemonLocal,
+                        stats = statDao.getStatsLocal(pokemonLocal.name),
+                        types = typeDao.getTypesLocal(pokemonLocal.name)
                     )
-                }
+                })
             }
-            emit(outputList)
         }
     }
 

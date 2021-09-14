@@ -16,7 +16,7 @@ interface PokemonLocalDao {
     @Query("DELETE FROM pokemons WHERE name LIKE :pokemonName")
     suspend fun deletePokemonLocal(pokemonName: String)
 
-    @Query("SELECT * FROM pokemons")
+    @Query("SELECT * FROM pokemons ORDER BY id")
     fun getAllPokemonLocal(): Flow<List<PokemonLocal>>
 
     @Query("SELECT * FROM pokemons WHERE name LIKE :pokemonName")
