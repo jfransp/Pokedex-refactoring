@@ -120,6 +120,9 @@ class MyPokemonsRecyclerViewAdapter(
                         savedPokemonItemColorSetter(1, context = context, types[0], binding)
                         text = types[0].type.name
                     }
+                    typeSlotTwo.apply {
+                        visibility = View.GONE
+                    }
                 }
             }
             2 -> {
