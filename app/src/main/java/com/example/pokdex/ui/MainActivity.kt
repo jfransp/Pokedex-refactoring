@@ -11,7 +11,6 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.pokdex.R
 import com.example.pokdex.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import dagger.hilt.android.AndroidEntryPoint
 
 
 class MainActivity : AppCompatActivity() {

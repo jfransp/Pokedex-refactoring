@@ -9,9 +9,7 @@ import com.example.domain.usecases.GetPokemonListUseCase
 import com.example.domain.util.ErrorEntity
 import com.example.pokdex.paging.PokemonListPagingSource
 import com.example.pokdex.util.LoadState
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
-import javax.inject.Inject
 
 
 class PokedexMainViewModel(
