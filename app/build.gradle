@@ -2,7 +2,6 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
-    id 'dagger.hilt.android.plugin'
     id 'kotlin-parcelize'
     id 'androidx.navigation.safeargs.kotlin'
 }
@@ -43,16 +42,11 @@ android {
     }
 }
 
-hilt {
-    enableExperimentalClasspathAggregation = true
-}
-
 dependencies {
     //Versions
     def lifecycle_version = "2.3.1"
     def retrofit_version = '2.9.0'
     def room_version = "2.3.0"
-    def hilt_version = '2.35'
     def paging_version = '3.0.0'
     def koin_version = "3.1.2"
 
@@ -102,11 +96,6 @@ dependencies {
     annotationProcessor "androidx.room:room-compiler:$room_version"
     kapt("androidx.room:room-compiler:$room_version")
     implementation("androidx.room:room-ktx:$room_version")
-
-    //Dagger Hilt
-    implementation("com.google.dagger:hilt-android:$hilt_version")
-    kapt("com.google.dagger:hilt-android-compiler:$hilt_version")
-
 
     //Koin Dependency Injection
     implementation "io.insert-koin:koin-core:$koin_version"
