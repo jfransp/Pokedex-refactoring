@@ -13,7 +13,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import javax.inject.Inject
 
-//@HiltViewModel
+
 class PokedexMainViewModel(
     private val getPokemonListUseCase: GetPokemonListUseCase
 ): ViewModel(), PokemonListPagingSource.OnPagingLoadState {

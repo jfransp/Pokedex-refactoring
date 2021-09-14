@@ -15,7 +15,7 @@ import com.example.pokdex.util.LoadState
 import com.example.pokdex.util.selectErrorMessageFromErrorEntity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-//@AndroidEntryPoint
+
 class PokedexMainFragment : Fragment(R.layout.fragment_pokedex_main), PokedexPagingAdapter.IAdapter {
 
     private val viewModel: PokedexMainViewModel by viewModel()

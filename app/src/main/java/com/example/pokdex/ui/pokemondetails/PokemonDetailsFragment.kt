@@ -24,7 +24,7 @@ import com.example.pokdex.util.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 
-//@AndroidEntryPoint
+
 class PokemonDetailsFragment : Fragment(R.layout.fragment_pokemon_details) {
 
     val args: PokemonDetailsFragmentArgs by navArgs()

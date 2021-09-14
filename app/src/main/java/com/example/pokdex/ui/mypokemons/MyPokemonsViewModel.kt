@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-//@HiltViewModel
+
 class MyPokemonsViewModel(
     private val deleteSavedPokemonUseCase: DeleteSavedPokemonUseCase,
     private val getSavedPokemonListUseCase: GetSavedPokemonListUseCase,

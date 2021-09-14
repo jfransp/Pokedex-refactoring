@@ -11,7 +11,7 @@ import com.example.pokdex.util.PokemonDetailsArgs
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 
-//@HiltViewModel
+
 class PokemonDetailsViewModel(
     private val getPokemonDetailsUseCase: GetPokemonDetailsUseCase,
     private val savePokemonUseCase: SavePokemonUseCase,

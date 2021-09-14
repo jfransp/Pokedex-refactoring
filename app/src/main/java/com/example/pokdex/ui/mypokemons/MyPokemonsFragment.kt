@@ -17,7 +17,7 @@ import com.example.pokdex.util.selectErrorMessageFromErrorEntity
 import com.google.android.material.snackbar.Snackbar
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-//@AndroidEntryPoint
+
 class MyPokemonsFragment : Fragment(R.layout.fragment_my_pokemons), MyPokemonsRecyclerViewAdapter.IAdapter {
 
     private val viewModel: MyPokemonsViewModel by viewModel()
