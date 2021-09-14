@@ -39,6 +39,7 @@ val appModule = module {
     ) }
 
     factory { LocalDataSource(
+        database = get(),
         mapper = get(),
         pokeDao = get(),
         typeDao = get(),

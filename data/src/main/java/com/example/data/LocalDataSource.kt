@@ -1,8 +1,10 @@
 package com.example.data
 
+import androidx.room.withTransaction
 import com.example.data.database.daos.PokemonLocalDao
 import com.example.data.database.daos.StatLocalDao
 import com.example.data.database.daos.TypeLocalDao
+import com.example.data.database.db.PokemonDatabase
 import com.example.domain.models.pokemondetails.PokemonDetails
 import com.example.mappers.Mapper
 import kotlinx.coroutines.flow.Flow
@@ -10,6 +12,7 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
 
 class LocalDataSource(
+    private val database: PokemonDatabase,
     private val pokeDao: PokemonLocalDao,
     private val statDao: StatLocalDao,
     private val typeDao: TypeLocalDao,
@@ -40,21 +43,27 @@ class LocalDataSource(
     }
 
     suspend fun insertPokemon(pokemon: PokemonDetails) =
-        mapper.mapPokemonDetailsToPokemonLocal(pokemon).let {
-            pokeDao.insertPokemonLocal(it.first)
-            for (stat in it.second) {
-                statDao.insertStatLocal(stat)
-            }
-            for (type in it.third) {
-                typeDao.insertTypeLocal(type)
+        database.withTransaction {
+            mapper.mapPokemonDetailsToPokemonLocal(pokemon).let {
+                pokeDao.insertPokemonLocal(it.first)
+                for (stat in it.second) {
+                    statDao.insertStatLocal(stat)
+                }
+                for (type in it.third) {
+                    typeDao.insertTypeLocal(type)
+                }
             }
         }
 
+
     suspend fun deletePokemon(pokemonName: String) =
-        pokemonName.let {
-            pokeDao.deletePokemonLocal(it)
-            statDao.deleteStatLocal(it)
-            typeDao.deleteTypeLocal(it)
+        database.withTransaction {
+            pokemonName.let {
+                pokeDao.deletePokemonLocal(it)
+                statDao.deleteStatLocal(it)
+                typeDao.deleteTypeLocal(it)
+            }
         }
+
 
 }
