@@ -3,6 +3,7 @@ package com.example.data
 import com.example.domain.models.pokemondetails.PokemonDetails
 import com.example.domain.models.pokemonlist.PokemonList
 import com.example.domain.repositories.PokemonRepository
+import kotlinx.coroutines.flow.Flow
 
 class PokemonRepositoryImpl(
     private val remoteDataSource: RemoteDataSource,
@@ -12,7 +13,7 @@ class PokemonRepositoryImpl(
     override suspend fun getPokemonListFromRemote(limit: Int, offset: Int): PokemonList =
         remoteDataSource.getPokemonList(limit, offset)
 
-    override suspend fun getPokemonDetailsListFromLocal(): List<PokemonDetails> =
+    override suspend fun getPokemonDetailsListFromLocal(): Flow<List<PokemonDetails>> =
         localDataSource.getPokemonDetailsList()
 
 

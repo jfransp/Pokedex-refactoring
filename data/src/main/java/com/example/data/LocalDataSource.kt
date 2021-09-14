@@ -5,6 +5,9 @@ import com.example.data.database.daos.StatLocalDao
 import com.example.data.database.daos.TypeLocalDao
 import com.example.domain.models.pokemondetails.PokemonDetails
 import com.example.mappers.Mapper
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.flow
 
 class LocalDataSource(
     private val pokeDao: PokemonLocalDao,
@@ -22,21 +25,32 @@ class LocalDataSource(
             )
         }
 
-    suspend fun getPokemonDetailsList(): List<PokemonDetails> {
-        val output = mutableListOf<PokemonDetails>()
+    fun getPokemonDetailsList(): Flow<List<PokemonDetails>> {
+        val outputList = mutableListOf<PokemonDetails>()
 
-        val result = pokeDao.getAllPokemonLocal()
-        for (pokemonLocal in result) {
-            val stats = statDao.getStatsLocal(pokemonName = pokemonLocal.name)
-            val types = typeDao.getTypesLocal(pokemonName = pokemonLocal.name)
-            output.add(mapper.mapPokemonLocalToPokemonDetails(
-                pokemon = pokemonLocal,
-                stats = stats,
-                types = types
-            ))
+        return flow {
+            pokeDao.getAllPokemonLocal().collect { pokemonLocalList ->
+                pokemonLocalList.map { pokemonLocal ->
+                    val stats = statDao.getStatsLocal(pokemonLocal.name).map { statLocal ->
+                        mapper.mapStatLocalToStat(statLocal)
+                    }
+                    val types = typeDao.getTypesLocal(pokemonLocal.name).map { typeLocal ->
+                        mapper.mapTypeLocalToType(typeLocal)
+                    }
+                    outputList.add(
+                        PokemonDetails(
+                            height = pokemonLocal.height,
+                            id = pokemonLocal.id,
+                            name = pokemonLocal.name,
+                            weight = pokemonLocal.weight,
+                            stats = stats,
+                            types = types
+                        )
+                    )
+                }
+            }
+            emit(outputList)
         }
-
-        return output
     }
 
     suspend fun insertPokemon(pokemon: PokemonDetails) =

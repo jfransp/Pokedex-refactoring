@@ -13,7 +13,6 @@ import com.example.pokdex.adapters.PokedexPagingAdapter
 import com.example.pokdex.databinding.FragmentPokedexMainBinding
 import com.example.pokdex.util.LoadState
 import com.example.pokdex.util.selectErrorMessageFromErrorEntity
-import dagger.hilt.android.AndroidEntryPoint
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 //@AndroidEntryPoint

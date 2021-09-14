@@ -2,6 +2,7 @@ package com.example.domain.repositories
 
 import com.example.domain.models.pokemondetails.PokemonDetails
 import com.example.domain.models.pokemonlist.PokemonList
+import kotlinx.coroutines.flow.Flow
 
 interface PokemonRepository {
 
@@ -13,7 +14,7 @@ interface PokemonRepository {
 
     suspend fun deletePokemon(pokemonName: String)
 
-    suspend fun getPokemonDetailsListFromLocal(): List<PokemonDetails>
+    suspend fun getPokemonDetailsListFromLocal(): Flow<List<PokemonDetails>>
 
     suspend fun getPokemonDetailsFromLocal(pokemonName: String): PokemonDetails?
 

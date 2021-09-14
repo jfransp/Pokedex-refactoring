@@ -8,10 +8,9 @@ import com.example.domain.usecases.SavePokemonUseCase
 import com.example.domain.util.ErrorEntity
 import com.example.domain.util.Resource
 import com.example.pokdex.util.LoadState
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 //@HiltViewModel
 class MyPokemonsViewModel(
@@ -26,15 +25,19 @@ class MyPokemonsViewModel(
     private val _loadStateObservable: MutableStateFlow<LoadState?> = MutableStateFlow(null)
     val loadStateObservable = _loadStateObservable.asLiveData()
 
+
     fun fetchData() = viewModelScope.launch {
-        when (val response = getSavedPokemonListUseCase.getSavedPokemonList()) {
-            is Resource.Error -> error(response.error)
-            is Resource.Success -> {
-                _result.value = response.data
-                success()
+        getSavedPokemonListUseCase.getSavedPokemonList().collect { resource ->
+            when (resource) {
+                is Resource.Error -> error(resource.error)
+                is Resource.Success -> {
+                    _result.value = resource.data
+                    success()
+                }
             }
         }
     }
+
 
     fun deletePokemon(pokemonName: String) {
         viewModelScope.launch {

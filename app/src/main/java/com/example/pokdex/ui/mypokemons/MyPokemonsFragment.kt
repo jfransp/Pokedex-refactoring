@@ -15,7 +15,6 @@ import com.example.pokdex.databinding.FragmentMyPokemonsBinding
 import com.example.pokdex.util.LoadState
 import com.example.pokdex.util.selectErrorMessageFromErrorEntity
 import com.google.android.material.snackbar.Snackbar
-import dagger.hilt.android.AndroidEntryPoint
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 //@AndroidEntryPoint
@@ -38,13 +37,7 @@ class MyPokemonsFragment : Fragment(R.layout.fragment_my_pokemons), MyPokemonsRe
 
         setupRecyclerView()
 
-        viewModel.pokemonListLiveData.observe(viewLifecycleOwner) { savedPokemonList ->
-            if (savedPokemonList.isEmpty()) {
-                binding.emptyRvMessage.visibility = View.VISIBLE
-            } else {
-                binding.emptyRvMessage.visibility = View.GONE
-            }
-        }
+        setupEmptyListMessage()
 
         viewModel.fetchData()
 
@@ -109,6 +102,16 @@ class MyPokemonsFragment : Fragment(R.layout.fragment_my_pokemons), MyPokemonsRe
         viewModel.loadStateObservable.observe(viewLifecycleOwner) { loadState ->
             if (loadState is LoadState.ERROR) {
                 showErrorMessage(loadState.error)
+            }
+        }
+    }
+
+    private fun setupEmptyListMessage() {
+        viewModel.pokemonListLiveData.observe(viewLifecycleOwner) { savedPokemonList ->
+            if (savedPokemonList.isEmpty()) {
+                binding.emptyRvMessage.visibility = View.VISIBLE
+            } else {
+                binding.emptyRvMessage.visibility = View.GONE
             }
         }
     }

@@ -5,6 +5,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.data.database.entities.PokemonLocal
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface PokemonLocalDao {
@@ -16,7 +17,7 @@ interface PokemonLocalDao {
     suspend fun deletePokemonLocal(pokemonName: String)
 
     @Query("SELECT * FROM pokemons")
-    suspend fun getAllPokemonLocal(): List<PokemonLocal>
+    fun getAllPokemonLocal(): Flow<List<PokemonLocal>>
 
     @Query("SELECT * FROM pokemons WHERE name LIKE :pokemonName")
     suspend fun getPokemonLocal(pokemonName: String): PokemonLocal?
