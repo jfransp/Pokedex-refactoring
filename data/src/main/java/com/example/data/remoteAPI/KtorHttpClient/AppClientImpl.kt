@@ -10,7 +10,7 @@ import io.ktor.client.features.json.*
 
 //I tried instantiating this on the DI injecting Gson as a dependency, but couldn't figure out
 //how for some reason - but I don't think it matters because if this class is going to be a singleton
-//the GsonSerializer is only going to be instantiated once too.
+//the GsonSerializer is only going to be instantiated only once too.
 class AppClientImpl: AppClient {
     override val client: HttpClient =
         HttpClient(OkHttp) {
