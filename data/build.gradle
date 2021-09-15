@@ -45,9 +45,6 @@ dependencies {
     // Annotation processor
     kapt("androidx.lifecycle:lifecycle-compiler:$lifecycle_version")
 
-    //Retrofit
-    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
-
     //GSON converter
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
 
