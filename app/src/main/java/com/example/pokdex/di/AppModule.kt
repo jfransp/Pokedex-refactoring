@@ -11,6 +11,7 @@ import com.example.domain.util.ErrorHandler
 import com.example.mappers.Mapper
 import com.example.mappers.MapperImpl
 import com.example.util.ErrorHandlerImpl
+import com.google.gson.Gson
 import org.koin.dsl.module
 
 val appModule = module {

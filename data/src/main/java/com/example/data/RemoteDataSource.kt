@@ -1,6 +1,6 @@
 package com.example.data
 
-import com.example.data.remoteAPI.PokeApi
+import com.example.data.remoteAPI.service.PokeApi
 import com.example.domain.models.pokemonlist.PokemonList
 import com.example.mappers.Mapper
 

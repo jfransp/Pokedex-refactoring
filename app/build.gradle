@@ -107,6 +107,7 @@ dependencies {
     //SLF4J Logger
     implementation "io.insert-koin:koin-logger-slf4j:$koin_version"
 
+
     //Paging 3
     implementation("androidx.paging:paging-runtime:$paging_version")
 
